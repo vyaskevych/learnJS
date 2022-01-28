@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Масив</title>
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			/* font-size: 14px; */
+		}
+
+		#font_size {
+			width: 40px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h3>Зсув вправо</h3>
+	<p>Дан масив чисел, необхідно циклічно здійснити зсув елементів масиву праворуч</p>
+	<pre>
+	Приклад 1:
+		Вхід: [1,2,3,4,5,6,7], k = 3
+		Вихід: [5,6,7,1,2,3,4]
+		Пояснення:
+		Зсув на 1 крок вправо: [7,1,2,3,4,5,6]
+		Зсув на 2 кроки вправо: [6,7,1,2,3,4,5]
+		Зсув на 3 кроки вправо: [5,6,7,1,2,3,4]
+		
+	Приклад 2:
+		Вхід: [-1, -100,3,99], k = 2
+		Вихід: [3,99, -1, -100]
+		Пояснення:
+		Зсув на 1 крок вправо: [99, -1, -100,3]
+		Зсув на 2 кроки вправо: [3,99, -1, -100]</pre>
+
+	<pre id="editor">
+function rotate(nums, k){
+	//insert
+}
+	</pre>
+	<br>
+	<select name="" id="selectTheme">
+		<option value="">chrome</option>
+		<option value="">monokai</option>
+		<option value="">twilight</option>
+		<option value="">eclipse</option>
+		<option value="">cobalt</option>
+	</select>
+	<input type="number" name="" id="font_size" min=1>
+	<input type="button" id="btn1" value="Перевірити">
+	<br>
+
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			let arr = [1, 2, 3, 4, 5, 6, 7];
+			f(arr, 3);
+			myEqual(arr, [5, 6, 7, 1, 2, 3, 4], 'f([1, 2, 3, 4, 5, 6, 7], 3) => [5, 6, 7, 1, 2, 3, 4]');
+
+			arr = [-1, -100, 3, 99];
+			f(arr, 2);
+			myEqual(arr, [3, 99, -1, -100], 'f([-1, -100, 3, 99], 2) => [3, 99, -1, -100]');
+
+			arr = [...Array(1000)].map(e => Math.round(Math.random() * 10000) - 5000);
+			let time1 = Date.now();
+			let arr1 = [...arr];
+			f(arr, 2000000);
+			myEqual(arr, arr1, 'f(Array(1 000 0000), 1 000 000) => тот же ');
+			
+			let time2=Date.now();
+			if(time2-time1>500) {
+				document.getElementById("outRes").innerHTML += `Час роботи ${time2-time1} мс. Це не оптимально, спробуйте змінити алгоритм роботи для зменшення часу.`
+			}
+
+		}
+	</script>
+</body>
+
+</html>

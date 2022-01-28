@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Масив</title>
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			/* font-size: 14px; */
+		}
+
+		img {
+			width: 40vw;
+		}
+
+		#font_size {
+			width: 40px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h3>Масив - Гора</h3>
+	<p>Дан масив чисел, необхідно повернути <code>true</code>, якщо масив подібний <i>гірці</i>, та <code>false</code> в іншому випадку</p>
+	<p>Деякий масив <code>array</code> подібний <i>гірці</i>, якщо</p>
+	<ul>
+		<li><code>array.length >= 3</code></li>
+		<li>Існує деяке <code>i, 0 < i < array.length - 1</code> для якого:
+		<ul><li><code>array[0] &lt; array[1] &lt; ... &lt; array[i - 1] &lt; array[i]</code></li>
+			<li><code>array[i] &gt; array[i + 1] &gt; ... &gt; array[array.length - 1]</code></li>
+		</ul></li>
+	</ul>
+	<img src="https://assets.leetcode.com/uploads/2019/10/20/hint_valid_mountain_array.png" alt="приклад">
+	<pre>
+	Приклад 1:
+		Вхід: [1, 2]
+		Вихід: false
+				
+	Приклад 2:
+		Вхід: [1, 100, 3, 99]
+		Вихід: false
+		
+	Приклад 3:
+		Вхід: [1, 100, 100, 99]
+		Вихід: false
+
+	Приклад 4:
+		Вхід: [1, 100, 99]
+		Вихід: true
+	
+	</pre>
+
+	<pre id="editor">
+function validMountainArray(arr){
+	//insert
+}
+	</pre>
+	<br>
+	<select name="" id="selectTheme">
+		<option value="">chrome</option>
+		<option value="">monokai</option>
+		<option value="">twilight</option>
+		<option value="">eclipse</option>
+		<option value="">cobalt</option>
+	</select>
+	<input type="number" name="" id="font_size" min=1>
+	<input type="button" id="btn1" value="Перевірити">
+	<br>
+
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			let arr = [1, 2];
+			myEqual(f(arr), false, '[1, 2] => false');
+
+			arr = [2, 1];
+			myEqual(f(arr), false, '[2, 1] => false');
+
+			arr = [1, 100, 3, 99];
+			myEqual(f(arr), false, '[1, 100, 3, 99] => false');
+
+			arr = [1, 100, 100, 99];
+			myEqual(f(arr), false, '[1, 100, 100, 99] => false');
+
+			arr = [1, 100, 99];
+			myEqual(f(arr), true, '[1, 100, 99] => true');
+
+			arr = [1, 2, 5, 10, 15, 21, 9, 6, 5, 4, 3, 2, 1];
+			myEqual(f(arr), true, '[1, 2, 5, 10, 15, 21, 9, 6, 5, 4, 3, 2, 1] => true');
+
+			arr = [-3, -2, -1, 0, 15, 21, 9, 6, 5, 4, 3, 2, 1, 0, -4];
+			myEqual(f(arr), true, '[-3, -2, -1, 0, 15, 21, 9, 6, 5, 4, 3, 2, 1, 0, -4] => true');
+
+			arr = [1, 2, 3, 3, 3, 5, 4, 0];
+			myEqual(f(arr), false, '[1, 2, 3, 3, 3, 5, 4, 0] => false');
+
+			arr = [1, 3, 2, 3, 2];
+			myEqual(f(arr), false, '[1, 3, 2, 3, 2] => false');
+
+			// arr = [...Array(1000)].map(e => Math.round(Math.random() * 10000) - 5000);
+			// let time1 = Date.now();
+			// let arr1 = arr;
+			// f(arr, 2000000);
+			// myEqual(arr, arr1, 'f(Array(1 000 0000), 1 000 000) => тот же ');
+			
+			// let time2=Date.now();
+			// if(time2-time1>3000) {
+			// 	document.getElementById("outRes").innerHTML += `Час роботи ${time2-time1} мс. Це не оптимально, спробуйте змінити алгоритм роботи для зменшення часу.`
+			// }
+
+		}
+	</script>
+</body>
+
+</html>

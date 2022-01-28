@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Послідовність Фібоначчі. Рекурсія</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			font-size: 14px;
+		}
+
+		#font_size {
+			width: 40px;
+		}
+
+		.container {
+			display: flex;
+		}
+
+		.description {
+			flex-basis: 40%;
+			border-right: 1px solid rgb(150, 150, 150);
+			padding: 5px;
+			margin-right: 15px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Послідовність Фібоначчі. Рекурсія</h3>
+			<p>Дописати у вікні нижче функцію, яка повертає <b><i>n</i></b>-е число Фібоначчі.</p>
+			<p>Послідовність чисел Фібоначчі обчислюється за формулою формулу <var>F(n) = F(n-1) + F(n-2)</var>. У ній
+				кожне наступне число обчислюється як сума двох попередніх. Перші два числа рівні 1 і 1.
+				Напишіть функцію <b><i>fib(n)</i></b>, яка повертає <b><i>n</i></b>-е число Фібоначчі. Використайте
+				рекурсію.
+			</p>
+			<ul>
+				<li>console.log(fib(3)); // 2</li>
+				<li>console.log(fib(7)); // 13</li>
+				<li>console.log(fib(77)); // 5527939700884757</li>
+			</ul>
+
+		</section>
+		<section class="work">
+
+			<pre id="editor">
+function fib(n){  
+	// Write your code here 
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+
+			<div id="outRes"></div>
+		</section>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8">
+	</script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			checkRecursion();
+			myEqual(f(1), 1, 'fib(1) = 1');
+			myEqual(f(3), 2, 'fib(3) = 2');
+			myEqual(f(7), 13, 'fib(7) = 13');
+			myEqual(f(8), 21, 'fib(8) = 21');
+			myEqual(f(10), 55, 'fib(10) = 55');
+			//myEqual(f(77), 5527939700884757, 'fib(77) = 5527939700884757');
+		}
+	</script>
+</body>
+
+</html>

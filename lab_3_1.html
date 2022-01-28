@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Масив</title>
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			/* font-size: 14px; */
+		}
+
+		#font_size {
+			width: 40px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h3>Діапазон чисел</h3>
+	<p>Напишіть функцію range, що приймає два аргументи - початок і кінець діапазону - і повертає масив, який містить всі
+		числа з нього, включаючи початкове і кінцеве.</p>
+	<p>Доробіть функцію range, щоб вона могла приймати <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Default_parameters">необов'язковий</a>
+		третій аргумент - крок для побудови масиву. Якщо крок не заданий, то він дорівнює одиниці. Виклик функції range(1,
+		10, 2) повертає [1, 3, 5, 7, 9]. Також крок може бути від’ємним, виклик range(5, 2, -1) повертає [5, 4, 3, 2].</p>
+
+	<pre id="editor">
+function range(start, end){
+	//insert
+}
+	</pre>
+	<br>
+	<select name="" id="selectTheme">
+		<option value="">chrome</option>
+		<option value="">monokai</option>
+		<option value="">twilight</option>
+		<option value="">eclipse</option>
+		<option value="">cobalt</option>
+	</select>
+	<input type="number" name="" id="font_size" min=1>
+	<input type="button" id="btn1" value="Перевірити">
+	<br>
+
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(1, 10), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'range(1, 10) => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]');
+			myEqual(f(120, 125), [120, 121, 122, 123, 124, 125], 'range(120, 125) => [120, 121, 122, 123, 124, 125]');
+			myEqual(f(1, 10, 2), [1, 3, 5, 7, 9], 'range(1, 10, 2) => [1, 3, 5, 7, 9]');
+			myEqual(f(5, 2, -1), [5, 4, 3, 2], 'range(5, 2, -1) => [5, 4, 3, 2]');
+			myEqual(f(3, -5, -3), [3, 0, -3], 'range(3, -5, -3) => [3, 0, -3]');
+			myEqual(f(10, 1), [10, 9, 8, 7, 6, 5, 4, 3, 2, 1], 'range(10, 1) => [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]');
+
+		}
+	</script>
+</body>
+
+</html>
