@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Сума двох чисел</title>
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			/* font-size: 14px; */
+		}
+
+		#font_size {
+			width: 40px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h3>Сума двох чисел</h3>
+	<p>Дописати у вікні нижче функцію, яка повертає суму двох чисел.</p>
+
+	<pre id="editor">
+function sum(a, b) {
+	//insert
+}
+	</pre>
+	<br>
+	<select name="" id="selectTheme">
+		<option value="">chrome</option>
+		<option value="">monokai</option>
+		<option value="">twilight</option>
+		<option value="">eclipse</option>
+		<option value="">cobalt</option>
+	</select>
+	<input type="number" name="" id="font_size" min=1>
+	<input type="button" id="btn1" value="Перевірити">
+	<br>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8">
+	</script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(0, 0), 0, "0 + 0");
+			myEqual(f(2, 3), 5, "2 + 3");
+			myEqual(f(-10, -45), -55, "-10 + -45");
+		}
+	</script>
+</body>
+
+</html>
