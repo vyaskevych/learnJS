@@ -80,6 +80,7 @@ function rotate(nums, k){
 
 	</script>
 	<script src="cover.js"></script>
+	<script src="array.js"></script>
 	<script>
 		function myTest() {
 			let arr = [1, 2, 3, 4, 5, 6, 7];
@@ -91,13 +92,24 @@ function rotate(nums, k){
 			myEqual(arr, [3, 99, -1, -100], 'f([-1, -100, 3, 99], 2) => [3, 99, -1, -100]');
 
 			arr = [...Array(1000)].map(e => Math.round(Math.random() * 10000) - 5000);
-			let time1 = Date.now();
 			let arr1 = [...arr];
+			let time1 = Date.now();
 			f(arr, 2000000);
 			myEqual(arr, arr1, 'f(Array(1 000 0000), 1 000 000) => тот же ');
 
 			let time2 = Date.now();
-			if (time2 - time1 > 500) {
+			console.log('time1: ', time2 - time1);
+			if (time2 - time1 > 100) {
+				document.getElementById("outRes").innerHTML += `<b style="color: orange;"><i class="fa fa-exclamation-triangle"></i> Warning:</b> Час роботи ${time2 - time1} мс. Це не оптимально, спробуйте змінити алгоритм роботи для зменшення часу.`
+			}
+
+			arr = [...arrayInput]
+			time1 = Date.now();
+			f(arr, k);
+			time2 = Date.now();
+			myEqual(arr, arrayRes, 'f([...100_000], 54944) => [...]');
+			console.log('time2: ', time2 - time1);
+			if (time2 - time1 > 100) {
 				document.getElementById("outRes").innerHTML += `<b style="color: orange;"><i class="fa fa-exclamation-triangle"></i> Warning:</b> Час роботи ${time2 - time1} мс. Це не оптимально, спробуйте змінити алгоритм роботи для зменшення часу.`
 			}
 			window.scrollTo(0, 1500);
