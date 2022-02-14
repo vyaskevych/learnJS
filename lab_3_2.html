@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Масив</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style type="text/css" media="screen">
 		#editor {
 			width: 50vw;
@@ -57,7 +58,8 @@ function rotate(nums, k){
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
 	<script>
 		var editor = ace.edit("editor");
 		var selectTheme = "chrome";
@@ -93,11 +95,12 @@ function rotate(nums, k){
 			let arr1 = [...arr];
 			f(arr, 2000000);
 			myEqual(arr, arr1, 'f(Array(1 000 0000), 1 000 000) => тот же ');
-			
-			let time2=Date.now();
-			if(time2-time1>500) {
-				document.getElementById("outRes").innerHTML += `Час роботи ${time2-time1} мс. Це не оптимально, спробуйте змінити алгоритм роботи для зменшення часу.`
+
+			let time2 = Date.now();
+			if (time2 - time1 > 500) {
+				document.getElementById("outRes").innerHTML += `<b style="color: orange;"><i class="fa fa-exclamation-triangle"></i> Warning:</b> Час роботи ${time2 - time1} мс. Це не оптимально, спробуйте змінити алгоритм роботи для зменшення часу.`
 			}
+			window.scrollTo(0, 1500);
 
 		}
 	</script>
