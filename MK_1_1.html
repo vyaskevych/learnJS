@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Модуль 1. Завдання 1</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			font-size: 14px;
+		}
+
+		#font_size {
+			width: 40px;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.description {
+			flex-basis: 40%;
+			border-right: 1px solid rgb(150, 150, 150);
+			padding: 5px;
+			margin-right: 15px;
+			min-width: 500px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Калькулятор</h3>
+			<p>Реалізувати функцію калькулятор. Функція приймає 3 параметра: <br>
+				<code>
+				перший параметр типу Number,<br>
+				другий параметр типу Number,<br>
+				третій параметр типу String,<br>
+				</code>
+				в який передається значення операції. Значеннями операції можуть бути: «+», «-» , «*» і «/». Функція
+				повинна повернути результат виконаної операції
+			</p>
+			<p><b><i>Додаткова умова:</i></b> Спробуйте розв'язати завдання без використання команд розгалуження (<code>if else, switch, тернарний оператор</code>) 
+			</p>
+
+		</section>
+		<section class="work">
+
+			<pre id="editor">
+function count (num1, num2, mark) {  
+	// Write your code here
+}
+			</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+
+			<div id="outRes"></div>
+		</section>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8">
+	</script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(10, 20, '+'), 30, 'f(10, 20, "+") => 30');
+			myEqual(f(10, 20, '-'), -10, 'f(10, 20, "-") => -10');
+			myEqual(f(20, 10, '/'), 2, 'f(20, 10, "/") => 2');
+			myEqual(f(10, 20, '*'), 200, 'f(10, 20, "*") => 200');
+
+		}
+	</script>
+</body>
+
+</html>

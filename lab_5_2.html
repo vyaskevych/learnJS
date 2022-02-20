@@ -26,6 +26,34 @@
 			padding: 5px;
 			margin-right: 15px;
 		}
+
+		.lds-dual-ring {
+			display: inline-block;
+			width: 80px;
+			height: 80px;
+		}
+
+		.lds-dual-ring::after {
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			margin: 8px;
+			border-radius: 50%;
+			border: 6px solid #fff;
+			border-color: rgb(9, 5, 255) transparent rgb(7, 18, 173) transparent;
+			animation: lds-dual-ring 1.2s linear infinite;
+		}
+
+		@keyframes lds-dual-ring {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
 	</style>
 
 </head>
@@ -98,9 +126,32 @@ function fib(n){
 			myEqual(f(7), 13, 'fib(7) = 13');
 			myEqual(f(8), 21, 'fib(8) = 21');
 			myEqual(f(10), 55, 'fib(10) = 55');
-			//myEqual(f(77), 5527939700884757, 'fib(77) = 5527939700884757');
+			//await myEqual(await f(77), 5527939700884757, 'fib(77) = 5527939700884757');
+
+			document.getElementById("outRes").innerHTML += `<p><b>Add test</b> fib(77) = 5527939700884757</p><div class="lds-dual-ring"></div>`
+			setTimeout(() => bigNumber(77), 500);
 		}
+
+		function bigNumber(number) {
+			checkRecursion();
+			document.querySelector('.lds-dual-ring').remove();
+			try{myEqual(f(number), 5527939700884757, `fib(${number}) = 5527939700884757`);}
+			catch{
+				alert('it is all')
+			}
+		}
+
 	</script>
 </body>
 
 </html>
+
+
+
+<!-- function fib(n){  
+	// Write your code here 
+	if(n===1) return 1
+	if(n===2) return 1
+	return fib(n-1)+fib(n-2)
+}
+ -->

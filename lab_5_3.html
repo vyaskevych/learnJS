@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Методи масиву</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 300px;
+			font-size: 14px;
+		}
+
+		#font_size {
+			width: 40px;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.description {
+			flex-basis: 40%;
+			border-right: 1px solid rgb(150, 150, 150);
+			padding: 5px;
+			margin-right: 15px;
+			min-width: 500px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Методи обробки масивів</h3>
+			<p>Дописати у вікні нижче функцію <code>forEach</code>, що перебирає масив і викликає функцію для кожного
+				елемента масиву.</p>
+			<p><code>forEach([2,5,8], function(el) { console.log(el) }) // logs to console: 2 5 8</code></p>
+			<p>Дописати у вікні нижче функцію <code>map</code>, яка повертає перетворений масив на основі функції, що
+				передається як параметр. Під час розв'язку використайте функцію <code>forEach</code> із попередньої
+				частини завдання </p>
+			<p><code>map([2, 5, 8], function(el) { return el + 3; }) // returns [5, 8, 11]</code></p>
+			<p><code>map([1, 2, 3, 4, 5], function (el) { return el * 2; }) // returns [2, 4, 6, 8, 10]</code></p>
+			<p>Дописати у вікні нижче функцію <code>filter</code>, яка повертає відфільтрований масив на основі функції,
+				яка передається як параметр.
+				Під час розв'язку використайте функцію <code>forEach</code> із попередньої
+				частини завдання </p>
+			<p><code>filter([2, 5, 1, 3, 8, 6], function(el) { return el > 3 }) //returns [5, 8, 6]</code></p>
+			<p><code>filter([1, 4, 6, 7, 8, 10], function(el) { return el % 2 === 0 }) //returns [4, 6, 8, 10]</code>
+			</p>
+
+		</section>
+		<section class="work">
+
+			<pre id="editor">
+function arrayMethods(){  
+	function forEach(array, func) {
+		// Write your code here
+	}
+
+	function map(array, func) {
+		// Write your code here
+	}
+
+	function filter(array, func) {
+		// Write your code here
+	}
+	
+	return {forEach, map, filter}
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+
+			<div id="outRes"></div>
+		</section>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8">
+	</script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			const arr = [1, 2, 3, 4, 5]
+			let copy = [];
+			function copyArr(item) {
+				copy.push(item)
+			}
+			f().forEach(arr, copyArr);
+			myEqual(copy, arr, 'test forEach');
+
+			//test map
+			myEqual(f().map(arr, x => x * 2), [2, 4, 6, 8, 10], 'test map(arr, x => x * 2)');
+			myEqual(f().map(arr, x => x * x), [1, 4, 9, 16, 25], 'test map(arr, x => x * x)');
+
+			//test filter
+			myEqual(f().filter(arr, x => x >= 3), [3, 4, 5], 'test filter(arr, x => x >= 3)');
+			myEqual(f().filter(arr, x => x % 2 === 1), [1, 3, 5], 'test filter(arr, x => x % 2 === 1)');
+
+		}
+	</script>
+</body>
+
+</html>
