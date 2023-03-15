@@ -122,6 +122,12 @@ function validMountainArray(arr){
 
 			arr = [1, 3, 2, 3, 2];
 			myEqual(f(arr), false, '[1, 3, 2, 3, 2] => false');
+			
+			arr = [1, 2, 3, 4, 5];
+			myEqual(f(arr), false, '[1, 2, 3, 4, 5] => false');
+
+			arr = [5, 4, 3, 2, 1];
+			myEqual(f(arr), false, '[5, 4, 3, 2, 1] => false');
 
 			// arr = [...Array(1000)].map(e => Math.round(Math.random() * 10000) - 5000);
 			// let time1 = Date.now();
