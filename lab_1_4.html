@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Вік</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+
+			<h3>Перетворення числа на рядок</h3>
+			<p>Дано ціле число в діапазоні 20-99, що визначає вік (в роках). Вивести рядок-опис зазначеного віку,
+				забезпечивши правильне узгодження числа зі словом «рік», наприклад:<br>
+				20 - «двадцять років»,<br>
+				32 - «тридцять два роки»,<br>
+				41 - «сорок один рік».</p>
+			<pre>
+Приклад:
+	Вхід: 55
+	Вихід: п'ятдесят п'ять років
+	</pre>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function convert(years) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/javascript");
+
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
+		});
+
+	</script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(20), 'двадцять років', '20 - двадцять років');
+			myEqual(f(32), 'тридцять два роки', '32 - тридцять два роки');
+			myEqual(f(41), 'сорок один рік', '41 - сорок один рік');
+			myEqual(f(55), "п'ятдесят п'ять років", "55 - п'ятдесят п'ять років");			
+		}
+	</script>
+</body>
+
+</html>
