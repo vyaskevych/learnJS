@@ -4,49 +4,51 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Середнє з трьох</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Середнє з трьох</h3>
-	<p>Ви з Васею і Петром вирішили вибрати найкращі фотографії котиків в інтернеті. Для цього кожну фотографію кожен з
-		вас оцінив за стобальною шкалою. Природно, тут же постало питання про те, як з трьох оцінок отримати одну фінальну.
-		Ви побоюєтеся, що кожен з вас сильно завищить оцінку фотографіям свого котика. Тому було вирішено в якості фінальної
-		оцінки брати не середнє арифметичне, а медіану, тобто просто відкинути максимальну і мінімальну оцінки. Вася почав
-		писати код вибору середньої оцінки з трьох, але заплутався в if-ах, і тому передоручив це завдання вам. Спробуйте не
-		просто вирішити задачу, а й мінімізувати кількість перевірок та максимально спростити умови перевірок.</p>
+	<div class="container">
+		<section class="description">
 
-	<pre id="editor">
+			<h3>Середнє з трьох</h3>
+			<p>Ви з Васею і Петром вирішили вибрати найкращі фотографії котиків в інтернеті. Для цього кожну фотографію
+				кожен з
+				вас оцінив за стобальною шкалою. Природно, тут же постало питання про те, як з трьох оцінок отримати
+				одну фінальну.
+				Ви побоюєтеся, що кожен з вас сильно завищить оцінку фотографіям свого котика. Тому було вирішено в
+				якості фінальної
+				оцінки брати не середнє арифметичне, а медіану, тобто просто відкинути максимальну і мінімальну оцінки.
+				Вася почав
+				писати код вибору середньої оцінки з трьох, але заплутався в if-ах, і тому передоручив це завдання вам.
+				Спробуйте не
+				просто вирішити задачу, а й мінімізувати кількість перевірок та максимально спростити умови перевірок.
+			</p>
+		</section>
+		<section class="work">
+			<pre id="editor">
 function median(a, b, c) {
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
 	<script>
 		var editor = ace.edit("editor");
 		var selectTheme = "chrome";

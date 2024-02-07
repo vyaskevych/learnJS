@@ -4,51 +4,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Решта</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Решта</h3>
-	<p>Програма має розраховувати найменшу кількість монет, якою можна видати решту. Номінал монет 25¢, 10¢, 5¢ та 1¢. Корисно використовувати жадібний алгоритм. Наприклад, якщо потрібно видати якомусь покупцю 41¢, найперший (тобто найкращий) крок, який можна зробити, це видати 25¢ (цей крок "найкращий", тому що він наближує нас до 0 швидше, ніж видача будь-якої іншої монетки.) Зауважте, що такий крок зменшить задачу з 41¢ до задачі 16¢, адже 41 – 25 = 16. Задача ще не вирішена, але вже менша. Очевидно, що видача наступних 25¢ буде завеликою (якщо ми вважаємо, що касир не хоче втратити гроші), далі наступний крок з видача 10¢, зменшуючи здачу до 6¢. Далі видається одна 5¢ монетка, за якою слідує фінальний 1¢, на чому задача буде вирішеною. Таким чином покупець загалом отримає по одній монеті номіналом 25¢, 10¢, 5¢ та 1¢.</p>
-	<p>Як завжди, постарайтеся вразити красою і простотою отриманого коду!</p>
-
-	<pre id="editor">
+	<div class="container">
+		<section class="description">
+			<h3>Решта</h3>
+			<p>Програма має розраховувати найменшу кількість монет, якою можна видати решту. Номінал монет 25¢, 10¢, 5¢
+				та 1¢. Корисно використовувати жадібний алгоритм. Наприклад, якщо потрібно видати якомусь покупцю 41¢,
+				найперший (тобто найкращий) крок, який можна зробити, це видати 25¢ (цей крок "найкращий", тому що він
+				наближує нас до 0 швидше, ніж видача будь-якої іншої монетки.) Зауважте, що такий крок зменшить задачу з
+				41¢ до задачі 16¢, адже 41 – 25 = 16. Задача ще не вирішена, але вже менша. Очевидно, що видача
+				наступних 25¢ буде завеликою (якщо ми вважаємо, що касир не хоче втратити гроші), далі наступний крок з
+				видача 10¢, зменшуючи здачу до 6¢. Далі видається одна 5¢ монетка, за якою слідує фінальний 1¢, на чому
+				задача буде вирішеною. Таким чином покупець загалом отримає по одній монеті номіналом 25¢, 10¢, 5¢ та
+				1¢.</p>
+			<p>Як завжди, постарайтеся вразити красою і простотою отриманого коду!</p>
+		</section>
+		<section class="work">
+			<pre id="editor">
 function greedy(change){
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
-	
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
 	<script>
 		var editor = ace.edit("editor");
 		var selectTheme = "chrome";
 		editor.setTheme("ace/theme/" + selectTheme);
 		editor.session.setMode("ace/mode/javascript");
-		
+
 		document.getElementById("selectTheme").addEventListener("change", function () {
 			selectTheme = this.options[this.selectedIndex].text;
 			editor.setTheme("ace/theme/" + selectTheme);
@@ -57,8 +60,8 @@ function greedy(change){
 		var font_size = document.getElementById("font_size");
 		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
 		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
-		font_size.addEventListener("change", function(){
-			document.getElementById('editor').style.fontSize= font_size.value + 'px';
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
 		});
 
 	</script>

@@ -4,46 +4,43 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Високосний рік</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Високосний рік</h3>
-	<p>На вхід функції подається число, яким задається рік. Завдання визначити, чи є рік високосним. Тобто повернути <i>true</i>, якщо рік високосний, та <i>false</i> в іншому випадку</p>
-	<ul>
-		<li>рік, номер якого кратний 400 - високосний;</li>
-		<li>інші роки, номери яких кратні 100 - невисокосні;</li>
-		<li>інші роки, номери яких кратні 4 - високосні.</li>
-	</ul>
-	<p><b><i>Примітка: </i></b>Потрібно задіяти логічні оператори, і не використовувати операції розгалуження!!! </p>	
+	<div class="container">
+		<section class="description">
+			<h3>Високосний рік</h3>
+			<p>На вхід функції подається число, яким задається рік. Завдання визначити, чи є рік високосним. Тобто
+				повернути <i>true</i>, якщо рік високосний, та <i>false</i> в іншому випадку</p>
+			<ul>
+				<li>рік, номер якого кратний 400 - високосний;</li>
+				<li>інші роки, номери яких кратні 100 - невисокосні;</li>
+				<li>інші роки, номери яких кратні 4 - високосні.</li>
+			</ul>
+			<p><b><i>Примітка: </i></b>Потрібно задіяти логічні оператори, і не використовувати операції розгалуження!!!
+			</p>
 
-	<pre id="editor">
+		</section>
+		<section class="work">
+			<pre id="editor">
 function leapYear(year) {
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
@@ -79,7 +76,7 @@ function leapYear(year) {
 			myEqual(f(2025), false, "2025 - Невисокосний рік");
 			myEqual(f(2100), false, "2100 - Невисокосний рік");
 			myEqual(f(1900), false, "1900 - Невисокосний рік");
-			
+
 		}
 	</script>
 </body>

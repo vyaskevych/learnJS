@@ -5,24 +5,16 @@
 	<meta charset="UTF-8">
 	<title>Масив</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-	<h3>Зсув вправо</h3>
-	<p>Дан масив чисел, необхідно циклічно здійснити зсув елементів масиву праворуч</p>
-	<pre>
+	<div class="container">
+		<section class="description">
+			<h3>Зсув вправо</h3>
+			<p>Дан масив чисел, необхідно циклічно здійснити зсув елементів масиву праворуч</p>
+			<pre>
 	Приклад 1:
 		Вхід: [1,2,3,4,5,6,7], k = 3
 		Вихід: [5,6,7,1,2,3,4]
@@ -37,24 +29,28 @@
 		Пояснення:
 		Зсув на 1 крок вправо: [99, -1, -100,3]
 		Зсув на 2 кроки вправо: [3,99, -1, -100]</pre>
+		</section>
+		<section class="work">
 
-	<pre id="editor">
+			<pre id="editor">
 function rotate(nums, k){
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
 
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
@@ -119,3 +115,32 @@ function rotate(nums, k){
 </body>
 
 </html>
+
+<script>
+	function rotate(nums, k) {
+		//insert
+		k %= nums.length;
+		for (let i = 0; i < k; i++) {
+			let t = nums[nums.length - 1];
+			for (let j = nums.length - 1; j > 0; j--) {
+				nums[j] = nums[j - 1]
+			}
+			nums[0] = t;
+		}
+	}
+
+	function rotate(nums, k) {
+		k %= nums.length;
+		var temp = [];
+		for (var i = nums.length - 1; i >= nums.length - k; i--) {
+			temp.push(nums[i]);
+		}
+		for (var i = nums.length - 1; i >= k; i--) {
+			nums[i] = nums[i - k];
+		}
+		for (var i = temp.length - 1, j = 0; i >= 0; i--, j++) {
+			nums[j] = temp[i];
+		}
+	}
+
+</script>

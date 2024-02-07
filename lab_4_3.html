@@ -4,52 +4,48 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Дужки</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			font-size: 14px;
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Дужки</h3>
-	<p>Дописати у вікні нижче функцію, яка перевіряє чи правильна послідовність дужок на вході.</p>
-	<p>Види дужок: () {} [] &lt;&gt;</p>
-	<p><strong>Результат роботи</strong>: true, якщо вхідний рядок містить правильну дужкову послідовність; або false,
-		якщо
-		послідовність є неправильною. Дужкова послідовність вважається правильною, якщо всі дужки можна розбити попарно
-		"відкриваюча"-"закриваюча",
-		при чому в кожній парі закриваюча дужка слідує після відкриваючої.</p>
-	<p></p>
-
-	<pre id="editor">
+	<div class="container">
+		<section class="description">
+			<h3>Дужки</h3>
+			<p>Дописати у вікні нижче функцію, яка перевіряє чи правильна послідовність дужок на вході.</p>
+			<p>Види дужок: () {} [] &lt;&gt;</p>
+			<p><strong>Результат роботи</strong>: true, якщо вхідний рядок містить правильну дужкову послідовність; або
+				false,
+				якщо
+				послідовність є неправильною. Дужкова послідовність вважається правильною, якщо всі дужки можна розбити
+				попарно
+				"відкриваюча"-"закриваюча",
+				при чому в кожній парі закриваюча дужка слідує після відкриваючої.</p>
+			<p></p>
+		</section>
+		<section class="work">
+			<pre id="editor">
 function validSequenceSimple(braces){  
 	// Write your code here 
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
-
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
 	<script>
 		var editor = ace.edit("editor");
 		var selectTheme = "chrome";
@@ -73,17 +69,17 @@ function validSequenceSimple(braces){
 	<script>
 		function myTest() {
 			myEqual(f(''), true, 'empty string validates');
-            myEqual(f('[]'), true, 'valid case []');
-            myEqual(f('()'), true, 'valid case ()');
-            myEqual(f('{}'), true, 'valid case {}');
-            myEqual(f('<>'), true, 'valid case <>');
-            myEqual(f('}'), false, 'invalid case }');
-            myEqual(f('({'), false, 'invalid case ({');
-            myEqual(f(')('), false, 'invalid case )(');
-            myEqual(f('[<]'), false, 'invalid case [<]');
-            myEqual(f('({)}'), false, 'invalid case ({)}');
-            myEqual(f('([](<{}>))'), true, 'valid case ([](<{}>))');
-            myEqual(f('({[](<{}>}))'), false, 'invalid case ({[](<{}>}))');
+			myEqual(f('[]'), true, 'valid case []');
+			myEqual(f('()'), true, 'valid case ()');
+			myEqual(f('{}'), true, 'valid case {}');
+			myEqual(f('<>'), true, 'valid case <>');
+			myEqual(f('}'), false, 'invalid case }');
+			myEqual(f('({'), false, 'invalid case ({');
+			myEqual(f(')('), false, 'invalid case )(');
+			myEqual(f('[<]'), false, 'invalid case [<]');
+			myEqual(f('({)}'), false, 'invalid case ({)}');
+			myEqual(f('([](<{}>))'), true, 'valid case ([](<{}>))');
+			myEqual(f('({[](<{}>}))'), false, 'invalid case ({[](<{}>}))');
 		}
 	</script>
 </body>

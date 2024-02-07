@@ -4,56 +4,58 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Хід ферзя</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Хід ферзя</h3>
-	<p>Вася вирішив навчити свого молодшого брата грати в шахи. Але ось біда, брат ще занадто малий і ніяк не може запам'ятати
-		як ходить <a href="https://uk.wikipedia.org/wiki/%D0%A4%D0%B5%D1%80%D0%B7%D1%8C" target="_blank">ферзь</a>. Як справжній
-		програміст, Вася вирішив автоматизувати ручну працю по навчанню початківців шахістів. Допоможіть йому написати програму,
-		яка визначає чи є коректним хід ферзя. Координати вихідної та кінцевої позиції ходу передаються рядком у звичайній шаховій
-		нотації, наприклад, "a1".</p>
-	<p>Як завжди, постарайтеся вразити Васю красою і простотою отриманого коду!</p>
-
-	<pre id="editor">
+	<div class="container">
+		<section class="description">
+			<h3>Хід ферзя</h3>
+			<p>Вася вирішив навчити свого молодшого брата грати в шахи. Але ось біда, брат ще занадто малий і ніяк не
+				може запам'ятати
+				як ходить <a href="https://uk.wikipedia.org/wiki/%D0%A4%D0%B5%D1%80%D0%B7%D1%8C"
+					target="_blank">ферзь</a>. Як справжній
+				програміст, Вася вирішив автоматизувати ручну працю по навчанню початківців шахістів. Допоможіть йому
+				написати програму,
+				яка визначає чи є коректним хід ферзя. Координати вихідної та кінцевої позиції ходу передаються рядком у
+				звичайній шаховій
+				нотації, наприклад, "a1".</p>
+			<p>Як завжди, постарайтеся вразити Васю красою і простотою отриманого коду!</p>
+			<div><em>Примітка:</em> завдання буде легше виконати, якщо звернути увагу на наступні методи обробки
+				рядків <a href="https://www.w3schools.com/jsref/jsref_charat.asp" target="_blank">charAt()</a> та <a
+					href="https://www.w3schools.com/jsref/jsref_charcodeat.asp" target="_blank">charCodeAt()</a> </div>
+		</section>
+		<section class="work">
+			<pre id="editor">
 function moveQueen(a, b){
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
-	<div><em>Примітка:</em> завдання буде легше виконати, якщо звернути увагу на наступні методи обробки рядків <a href="https://www.w3schools.com/jsref/jsref_charat.asp"
-		target="_blank">charAt()</a> та <a href="https://www.w3schools.com/jsref/jsref_charcodeat.asp" target="_blank">charCodeAt()</a> </div>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
 	<script>
 		var editor = ace.edit("editor");
 		var selectTheme = "chrome";
 		editor.setTheme("ace/theme/" + selectTheme);
 		editor.session.setMode("ace/mode/javascript");
-		
+
 		document.getElementById("selectTheme").addEventListener("change", function () {
 			selectTheme = this.options[this.selectedIndex].text;
 			editor.setTheme("ace/theme/" + selectTheme);
@@ -62,8 +64,8 @@ function moveQueen(a, b){
 		var font_size = document.getElementById("font_size");
 		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
 		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
-		font_size.addEventListener("change", function(){
-			document.getElementById('editor').style.fontSize= font_size.value + 'px';
+		font_size.addEventListener("change", function () {
+			document.getElementById('editor').style.fontSize = font_size.value + 'px';
 		});
 
 	</script>

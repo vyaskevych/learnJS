@@ -4,49 +4,50 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Масив</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Діапазон чисел</h3>
-	<p>Напишіть функцію range, що приймає два аргументи - початок і кінець діапазону - і повертає масив, який містить всі
-		числа з нього, включаючи початкове і кінцеве.</p>
-	<p>Доробіть функцію range, щоб вона могла приймати <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Default_parameters">необов'язковий</a>
-		третій аргумент - крок для побудови масиву. Якщо крок не заданий, то він дорівнює одиниці. Виклик функції range(1,
-		10, 2) повертає [1, 3, 5, 7, 9]. Також крок може бути від’ємним, виклик range(5, 2, -1) повертає [5, 4, 3, 2].</p>
-
-	<pre id="editor">
+	<div class="container">
+		<section class="description">
+			<h3>Діапазон чисел</h3>
+			<p>Напишіть функцію range, що приймає два аргументи - початок і кінець діапазону - і повертає масив, який
+				містить
+				всі
+				числа з нього, включаючи початкове і кінцеве.</p>
+			<p>Доробіть функцію range, щоб вона могла приймати <a
+					href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Default_parameters">необов'язковий</a>
+				третій аргумент - крок для побудови масиву. Якщо крок не заданий, то він дорівнює одиниці. Виклик
+				функції
+				range(1,
+				10, 2) повертає [1, 3, 5, 7, 9]. Також крок може бути від’ємним, виклик range(5, 2, -1) повертає [5, 4,
+				3, 2].
+			</p>
+		</section>
+		<section class="work">
+			<pre id="editor">
 function range(start, end){
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
-
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript"
+		charset="utf-8"></script>
 	<script>
 		var editor = ace.edit("editor");
 		var selectTheme = "chrome";
@@ -75,6 +76,7 @@ function range(start, end){
 			myEqual(f(5, 2, -1), [5, 4, 3, 2], 'range(5, 2, -1) => [5, 4, 3, 2]');
 			myEqual(f(3, -5, -3), [3, 0, -3], 'range(3, -5, -3) => [3, 0, -3]');
 			myEqual(f(10, 0, -2), [10, 8, 6, 4, 2, 0], 'range(10, 0, -2) => [10, 8, 6, 4, 2, 0]');
+
 		}
 	</script>
 </body>
