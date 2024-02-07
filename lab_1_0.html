@@ -4,40 +4,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Сума двох чисел</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			/* font-size: 14px; */
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Сума двох чисел</h3>
-	<p>Дописати у вікні нижче функцію, яка повертає суму двох чисел.</p>
-
-	<pre id="editor">
+	<div class="container">
+		<section class="description">
+			<h3>Сума двох чисел</h3>
+			<p>Дописати у вікні нижче функцію, яка повертає суму двох чисел.</p>
+		</section>
+		<section class="work">
+			<pre id="editor">
 function sum(a, b) {
 	//insert
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="btn1" value="Перевірити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
