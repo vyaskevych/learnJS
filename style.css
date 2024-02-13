@@ -12,7 +12,7 @@
     min-height: 300px;
     max-height: 90vh;
     font-size: 14px;
-    resize: both;    
+    resize: both;
 }
 
 #font_size {
@@ -32,7 +32,7 @@
     margin-right: 15px;
     overflow: auto;
     resize: horizontal;
-    
+
 }
 
 .work {
@@ -48,4 +48,18 @@ img {
     display: block;
     max-width: 75%;
     margin: auto;
+}
+
+.test {
+    font-weight: bold;
+}
+
+.test.ok {
+    color: blue;
+    font-weight: normal;
+}
+
+.test.failed {
+    color: red;
+    font-weight: normal;
 }

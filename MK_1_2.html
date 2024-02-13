@@ -3,7 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Модуль 1. Завдання 2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Максимальна кількість одиниць підряд</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -11,14 +13,15 @@
 <body>
 	<div class="container">
 		<section class="description">
-			<h3>Максимальна кiлькiсть одиниць підряд</h3>
+			<h3>Максимальна кількість одиниць підряд</h3>
 			<p>Дан масив чисел, що складається з одиниць та нулів, необхідно знайти максимальну кількість одиниць, що
 				стоять підряд у масиві.</p>
 			<pre>
 	Приклад 1:
 		Вхід: [1,1,0,1,1,1,1]
 		Вихід: 4 </pre>
-			<p><i>Пояснення:</i> Перші два числа та останні три числа є одиницями підряд. Максимальна кількість одиниць підряд
+			<p><i>Пояснення:</i> Перші два числа та останні три числа є одиницями підряд. Максимальна кількість одиниць
+				підряд
 				дорівнює 4.</p>
 
 			<pre>
@@ -43,39 +46,29 @@ function findMaxConsecutiveOnes (nums) {
 				<option value="">cobalt</option>
 			</select>
 			<input type="number" name="" id="font_size" min=1>
-			<input type="button" id="btn1" value="Перевірити">
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
 			<br>
 		</section>
 	</div>
 	<div id="outRes"></div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8">
-	</script>
-	<script>
-		var editor = ace.edit("editor");
-		var selectTheme = "chrome";
-		editor.setTheme("ace/theme/" + selectTheme);
-		editor.session.setMode("ace/mode/javascript");
 
-		document.getElementById("selectTheme").addEventListener("change", function () {
-			selectTheme = this.options[this.selectedIndex].text;
-			editor.setTheme("ace/theme/" + selectTheme);
-		});
-
-		var font_size = document.getElementById("font_size");
-		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
-		font_size.addEventListener("change", function () {
-			document.getElementById('editor').style.fontSize = font_size.value + 'px';
-		});
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
 	<script src="cover.js"></script>
 	<script>
 		function myTest() {
-			myEqual(f([1,1,0,1,1,1,1]), 4, 'f([1,1,0,1,1,1,1]) => 4');
-			myEqual(f([1,0,1,1,0,1]), 2, 'f([1,0,1,1,0,1]) => 2');
-			myEqual(f([1,1,0,1]), 2, 'f([1,1,0,1]) => 2');
-			myEqual(f([1,1,1,1,1]), 5, 'f([1,1,1,1,1]) => 5');
-			myEqual(f([0,0,0,0,0]), 0, 'f([0,0,0,0,0]) => 0');
+			myEqual(f([1, 1, 0, 1, 1, 1, 1]), 4, 'f([1,1,0,1,1,1,1]) => 4');
+			myEqual(f([1, 0, 1, 1, 0, 1]), 2, 'f([1,0,1,1,0,1]) => 2');
+			myEqual(f([1, 1, 0, 1]), 2, 'f([1,1,0,1]) => 2');
+			myEqual(f([1, 1, 1, 1, 1]), 5, 'f([1,1,1,1,1]) => 5');
+			myEqual(f([0, 0, 0, 0, 0]), 0, 'f([0,0,0,0,0]) => 0');
 			myEqual(f([1]), 1, 'f([1]) => 1');
 			myEqual(f([0]), 0, 'f([0]) => 0');
 		}

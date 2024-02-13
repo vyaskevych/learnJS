@@ -1,7 +1,9 @@
-var btn1 = document.getElementById("btn1");
+var goTest = document.getElementById("goTest");
+var loadLast = document.getElementById("loadLast");
 var text = document.getElementById("editor");
 var out = document.getElementById("outRes");
 var f;
+let tests = { total: 0, passed: 0 };
 
 document.addEventListener('paste', event => {
 	const text = event.clipboardData.getData('text/plain');
@@ -9,27 +11,34 @@ document.addEventListener('paste', event => {
 });
 
 
-btn1.addEventListener("click", start);
+goTest.addEventListener("click", start);
 
 function start() {
 	out.innerHTML = "";
 	var bodyOfFunc = editor.getValue();
+	tests = { total: 0, passed: 0 }
+	sessionStorage.setItem('last_code', bodyOfFunc);
+	loadLast.disabled = !sessionStorage.getItem('last_code');
 
 	try {
 		f = createFunc(bodyOfFunc);
 		myTest();
+		setTimeout(() => out.insertAdjacentHTML("afterbegin", `<p class="test">${tests.passed}/${tests.total} тестів пройдено успішно!</p>`), 100);
+		window.scrollTo(0, document.body.scrollHeight);
 	} catch (e) {
 		out.innerHTML = "<p style='color: red;'>Error: " + e + "</p>";
 	}
 }
 
 function myEqual(rec, exp, spec) {
+	tests.total++
 	if (myDeepEqual(rec, exp)) {
-		out.innerHTML += "<p style='color: blue;'>OK</p>";
+		tests.passed++;
+		out.insertAdjacentHTML("beforeend", `<p class="test ok">OK&nbsp;&nbsp;&nbsp;${spec}; expected: ${exp}; result: ${rec}</p>`);
 	} else {
-		out.innerHTML += "<p style='color: red;'>Failed&nbsp;&nbsp;&nbsp;" + spec +
-			"; expected: " + exp + "; result: " + rec + "</p>";
+		out.insertAdjacentHTML("beforeend", `<p class="test failed">Failed&nbsp;&nbsp;&nbsp;${spec}; expected: ${exp}; result: ${rec}</p>`);
 	}
+
 }
 
 function myDeepEqual(rec, exp) {
@@ -61,3 +70,9 @@ function checkRecursion() {
 		out.innerHTML += '<p><b style="color: orange;"><i class="fa fa-exclamation-triangle"></i> Warning:</b> завдання зробленно без використання <a href="https://learn.javascript.ru/recursion">рекурсії</p>';
 	}
 }
+
+window.addEventListener('load', () => { loadLast.disabled = !sessionStorage.getItem('last_code') })
+
+loadLast.addEventListener('click', () => {
+	editor.setValue(sessionStorage.getItem('last_code'));
+})
