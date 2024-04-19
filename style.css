@@ -32,7 +32,10 @@
     margin-right: 15px;
     overflow: auto;
     resize: horizontal;
-
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .work {
