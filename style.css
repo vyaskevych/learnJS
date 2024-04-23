@@ -53,16 +53,38 @@ img {
     margin: auto;
 }
 
+/* #outRes{
+    display: flex;
+} */
+
 .test {
+    border-bottom: 2px solid #bbb;
+    margin-bottom: 25px;
+    margin-left: 35px;
+}
+
+.test:first-child {
     font-weight: bold;
 }
 
-.test.ok {
+.test .ok {
     color: blue;
     font-weight: normal;
 }
 
-.test.failed {
+.test .ok::before {
+    content: '✅ ';
+    color: green;
+    margin-left: -27px;
+}
+
+.test .failed {
     color: red;
     font-weight: normal;
+}
+
+.test .failed::before {
+    content: '❌ ';
+    color: darkred;
+    margin-left: -27px;
 }

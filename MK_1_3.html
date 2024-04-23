@@ -6,16 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 	<title>Матриця</title>
-	<link rel="stylesheet" href="style.css">		
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div class="container">
 		<section class="description">
 			<h3>Матриця</h3>
-			<p>Дано ціле число <var>n</var>, необхідно вивести на екран матрицю чисел розміром <var>n</var> x
+			<p>Дано ціле число <var>n</var>, необхідно створити матрицю чисел розміром <var>n</var> x
 				<var>n</var>. Матрицю заповнити
-				числами в діапазоні від 1 до n<sup>2</sup>. Числа, що розташовані на діагоналях матриці замінити на *
+				числами в діапазоні від 1 до n<sup>2</sup>. Числа, що розташовані на діагоналях матриці замінити на *.
+
 			</p>
 			<pre>
 	Приклад 1:
@@ -26,7 +27,7 @@
 		11 12 * 14 15
 		16 * 18 * 20
 		* 22 23 24 *</pre>
-			
+
 		</section>
 		<section class="work">
 
@@ -62,11 +63,11 @@ function createMatrix (n) {
 	<script src="cover.js"></script>
 	<script>
 		function myTest() {
-			myEqual(f(5), '* 2 3 4 * \n6 * 8 * 10 \n11 12 * 14 15 \n16 * 18 * 20 \n* 22 23 24 * \n', 'n = 5');
-			myEqual(f(4), '* 2 3 * \n5 * * 8 \n9 * * 12 \n* 14 15 * \n', 'n = 4');
-			myEqual(f(3), '* 2 * \n4 * 6 \n* 8 * \n', 'n = 3');
-			myEqual(f(2), '* * \n* * \n', 'n = 2');
-			myEqual(f(1), '* \n', 'n = 1');
+			myEqual(f(5), [['*', 2, 3, 4, '*'], [6, '*', 8, '*', 10], [11, 12, '*', 14, 15], [16, '*', 18, '*', 20], ['*', 22, 23, 24, '*']], 'n = 5');
+			myEqual(f(4), [['*', 2, 3, '*'], [5, '*', '*', 8], [9, '*', '*', 12], ['*', 14, 15, '*']], 'n = 4');
+			myEqual(f(3), [['*', 2, '*'], [4, '*', 6], ['*', 8, '*']], 'n = 3');
+			myEqual(f(2), [['*', '*'], ['*', '*']], 'n = 2');
+			myEqual(f(1), [['*']], 'n = 1');
 
 		}
 	</script>
