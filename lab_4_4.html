@@ -3,87 +3,111 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Дужки</title>
-	<style type="text/css" media="screen">
-		#editor {
-			width: 50vw;
-			height: 300px;
-			font-size: 14px;
-		}
-
-		#font_size {
-			width: 40px;
-		}
-	</style>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Відмінники</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h3>Дужки</h3>
-	<p>Дописати у вікні нижче функцію, яка перевіряє чи правильна послідовність дужок на вході.</p>
-	<p>Види дужок: () {} [] &lt;&gt;</p>
-	<p><strong>Результат роботи</strong>: true, якщо вхідний рядок містить правильну дужкову послідовність; або false,
-		якщо
-		послідовність є неправильною. Дужкова послідовність вважається правильною, якщо всі дужки можна розбити попарно
-		"відкриваюча"-"закриваюча",
-		при чому в кожній парі закриваюча дужка слідує після відкриваючої.</p>
-	<p></p>
+	<div class="container">
+		<section class="description">
+			<h3>Відмінники</h3>
+			<p>Дописати у вікні нижче функцію, яка повертає список студентів, що мають оцінки не менше С(75 балів) з
+				кожної дисципліни.</p>
+			<p>Дані про студентів зберігаються в масиві об'єктів, таких як
+				<code>{ name: 'Андрій', surname: "Бульба", oop: 75, web: 62, aos: 69, discrete_mathematics: 86 }</code>
+			</p>
+			<p><em><strong>Наприклад</strong></em></p>
+			<pre>
+Вхід: 
+[
+  { name: 'Андрій', surname: 'Бульба', oop: 75, web: 62, aos: 69, discrete_mathematics: 86 },
+  { name: 'Іван', surname: 'Петренко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
+  { name: 'Марія', surname: 'Ковальчук', oop: 75, web: 75, aos: 82, discrete_mathematics: 80 },
+  { name: 'Олексій', surname: 'Сидоренко', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
+  { name: 'Оксана', surname: 'Лисенко', oop: 78, web: 68, aos: 74, discrete_mathematics: 85 }
+];
+Вихід: ['Ковальчук Марія', 'Сидоренко Олексій']
+			</pre>
 
-	<pre id="editor">
-function validSequenceSimple(braces){  
+		</section>
+		<section class="work">
+			<pre id="editor">
+function getStudentsWithGoodGrades(students) { 
 	// Write your code here 
 }
 	</pre>
-	<br>
-	<select name="" id="selectTheme">
-		<option value="">chrome</option>
-		<option value="">monokai</option>
-		<option value="">twilight</option>
-		<option value="">eclipse</option>
-		<option value="">cobalt</option>
-	</select>
-	<input type="number" name="" id="font_size" min=1>
-	<input type="button" id="btn1" value="Перевірити">
-	<br>
-
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
-	<script>
-		var editor = ace.edit("editor");
-		var selectTheme = "chrome";
-		editor.setTheme("ace/theme/" + selectTheme);
-		editor.session.setMode("ace/mode/javascript");
-
-		document.getElementById("selectTheme").addEventListener("change", function () {
-			selectTheme = this.options[this.selectedIndex].text;
-			editor.setTheme("ace/theme/" + selectTheme);
-		});
-
-		var font_size = document.getElementById("font_size");
-		//console.log(window.getComputedStyle(document.getElementById("editor")).fontSize);
-		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
-		font_size.addEventListener("change", function () {
-			document.getElementById('editor').style.fontSize = font_size.value + 'px';
-		});
-
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
 	<script src="cover.js"></script>
 	<script>
+		const array0 = [
+				{ name: 'Андрій', surname: 'Бульба', oop: 75, web: 62, aos: 69, discrete_mathematics: 86 },
+				{ name: 'Іван', surname: 'Петренко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
+				{ name: 'Марія', surname: 'Ковальчук', oop: 75, web: 75, aos: 82, discrete_mathematics: 80 },
+				{ name: 'Олексій', surname: 'Сидоренко', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
+				{ name: 'Оксана', surname: 'Лисенко', oop: 78, web: 68, aos: 74, discrete_mathematics: 85 }
+			]
+		const array1 = [
+			{ name: 'Ігор', surname: 'Павленко', oop: 85, web: 78, aos: 92, discrete_mathematics: 70 },
+			{ name: 'Наталія', surname: 'Мельник', oop: 70, web: 82, aos: 75, discrete_mathematics: 88 },
+			{ name: 'Анна', surname: 'Коваль', oop: 78, web: 90, aos: 85, discrete_mathematics: 80 },
+			{ name: 'Дмитро', surname: 'Козлов', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
+			{ name: 'Олена', surname: 'Іванова', oop: 75, web: 68, aos: 74, discrete_mathematics: 85 },
+			{ name: 'Артем', surname: 'Сидоренко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
+			{ name: 'Катерина', surname: 'Петренко', oop: 68, web: 75, aos: 72, discrete_mathematics: 80 }
+		];
+		const array3 = [
+			{ name: 'Тетяна', surname: 'Петренко', oop: 85, web: 78, aos: 92, discrete_mathematics: 70 },
+			{ name: 'Максим', surname: 'Сидоренко', oop: 70, web: 82, aos: 75, discrete_mathematics: 88 },
+			{ name: 'Євгенія', surname: 'Коваленко', oop: 78, web: 90, aos: 85, discrete_mathematics: 80 },
+			{ name: 'Роман', surname: 'Ковальчук', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
+			{ name: 'Дарина', surname: 'Іванова', oop: 75, web: 68, aos: 74, discrete_mathematics: 85 },
+			{ name: 'Сергій', surname: 'Сергієнко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
+			{ name: 'Наталя', surname: 'Григоренко', oop: 68, web: 75, aos: 72, discrete_mathematics: 80 },
+			{ name: 'Володимир', surname: 'Кузьменко', oop: 85, web: 78, aos: 92, discrete_mathematics: 70 },
+			{ name: 'Маргарита', surname: 'Іванова', oop: 70, web: 82, aos: 75, discrete_mathematics: 88 }
+		];
+
+		// Масив з 8 елементів
+		const array4 = [
+			{ name: 'Олександра', surname: 'Павленко', oop: 85, web: 78, aos: 92, discrete_mathematics: 70 },
+			{ name: 'Михайло', surname: 'Мельник', oop: 70, web: 82, aos: 75, discrete_mathematics: 88 },
+			{ name: 'Єлизавета', surname: 'Коваль', oop: 78, web: 90, aos: 85, discrete_mathematics: 80 },
+			{ name: 'Андріан', surname: 'Кравчук', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
+			{ name: 'Надія', surname: 'Іванова', oop: 75, web: 68, aos: 74, discrete_mathematics: 85 },
+			{ name: 'Олександр', surname: 'Сидоренко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
+			{ name: 'Євген', surname: 'Петренко', oop: 68, web: 75, aos: 72, discrete_mathematics: 80 },
+			{ name: 'Тетяна', surname: 'Лисенко', oop: 85, web: 78, aos: 92, discrete_mathematics: 70 }
+		];
 		function myTest() {
-			myEqual(f(''), true, 'empty string validates');
-            myEqual(f('[]'), true, 'valid case []');
-            myEqual(f('()'), true, 'valid case ()');
-            myEqual(f('{}'), true, 'valid case {}');
-            myEqual(f('<>'), true, 'valid case <>');
-            myEqual(f('}'), false, 'invalid case }');
-            myEqual(f('({'), false, 'invalid case ({');
-            myEqual(f(')('), false, 'invalid case )(');
-            myEqual(f('[<]'), false, 'invalid case [<]');
-            myEqual(f('({)}'), false, 'invalid case ({)}');
-            myEqual(f('([](<{}>))'), true, 'valid case ([](<{}>))');
-            myEqual(f('({[](<{}>}))'), false, 'invalid case ({[](<{}>}))');
+			myEqual(f(array0), ['Ковальчук Марія', 'Сидоренко Олексій'], JSON.stringify(array0));
+			myEqual(f(array1), ['Коваль Анна', 'Козлов Дмитро'], JSON.stringify(array1));
+			myEqual(f(array3), ['Коваленко Євгенія', 'Ковальчук Роман'], JSON.stringify(array3));
+			myEqual(f(array4), ['Коваль Єлизавета', 'Кравчук Андріан'], JSON.stringify(array4));			
 		}
 	</script>
 </body>
