@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Test lab 2</title>
+	<style type="text/css" media="screen">
+		#editor {
+			width: 50vw;
+			height: 320px;
+			/* font-size: 14px; */
+		}
+
+		#font_size {
+			width: 40px;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>Попередня первірка лабораторної роботи</h3>
+	<p>Вставте у вікно нижче HTML код вашої сторінки.</p>
+	<pre id="editor">
+
+			<!-- insert -->
+		
+	</pre>
+	<br>
+	<input type="button" id="btn" value="Перевірити">
+	<br>
+	<div id="outRes"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var editor = ace.edit("editor");
+		var selectTheme = "chrome";
+		editor.setTheme("ace/theme/" + selectTheme);
+		editor.session.setMode("ace/mode/html");
+		
+		document.getElementById("selectTheme").addEventListener("change", function () {
+			selectTheme = this.options[this.selectedIndex].text;
+			editor.setTheme("ace/theme/" + selectTheme);
+		});
+
+		var font_size = document.getElementById("font_size");
+		font_size.value = parseInt(window.getComputedStyle(document.getElementById("editor")).fontSize);
+		font_size.addEventListener("change", function(){
+			document.getElementById('editor').style.fontSize= font_size.value + 'px';
+		});
+
+	</script>
+	<script>
+		window.onload = function () {
+			document.getElementById("btn").addEventListener("click", start);
+			var text = document.getElementById("htmlSrc");
+			var out = document.getElementById("outRes");
+			//var cod =document.documentElement.innerHTML;
+
+			var commonTags = ['html', 'head', 'meta', 'title', 'link', 'body', 'style'];
+			var sectionTags = ['section', 'article', 'aside', 'main', 'nav', 'footer', 'header'];
+			var codeTags = ['code', 'samp', 'kbd'];
+			var textTags = ['strong', 'em'];
+			var defTags = ['abbr', 'dfn'];
+			var foundTags = [];
+
+			function start() {
+				foundTags = [];
+				out.innerHTML = "";
+				var cod = editor.getValue();
+				cod.match(/\<\s*[a-z]+/ig).forEach(tag => {
+					tag = tag.replace('<', '').toLowerCase();
+
+					if (commonTags.indexOf(tag) === -1 && foundTags.indexOf(tag) === -1) {
+						foundTags.push(tag);
+					}
+				});
+				var points = 0;
+				var total = 0;
+
+				out.innerHTML += "<p><strong>Кількість використаних тегів: </strong>" + foundTags.length + "</p>";
+				out.innerHTML += "<p><strong>Список тегів: </strong>" + foundTags.join("; ") + "</p>";
+				var outStr = "<table><caption><strong>Приблизна оцінка, якщо сторінка проходить <a href='https://validator.w3.org/nu/#textarea' target='_blank'>валідацію</a>: </strong></caption>";
+
+				if (foundTags.length >= 15) points = 0.5;
+				if (foundTags.length >= 20) points = 1;
+				if (foundTags.length >= 25) points = 2;
+				total += points;
+				outStr += "<tr><td>за кількість використаних унікальних тегів</td><td>" + points + "/2</td></tr>";
+
+				total += 2;
+				outStr += "<tr><td>перевірка на валідність</td><td>2/2</td></tr>";
+
+				if (rate(sectionTags) >= 4) points = 2;
+				else if (rate(sectionTags) >= 2) points = 1;
+				else points = 0;
+				total += points;
+				outStr += "<tr><td>використання секційних елементів</td><td>" + points + "/2</td></tr>";
+
+				if (rate(codeTags) >= 1) points = 1;
+				else points = 0;
+				total += points;
+				outStr += "<tr><td>використання елементів для позначення команд та програм</td><td>" + points + "/1</td></tr>";
+
+				if (rate(defTags) >= 1) points = 1;
+				else points = 0;
+				total += points;
+				outStr += "<tr><td>використання елементів для визначень, абревіатур і т.і.</td><td>" + points + "/1</td></tr>";
+
+				if (rate(textTags) >= 1) points = 1;
+				else points = 0;
+				total += points;
+				outStr += "<tr><td>використання текстових елементів</td><td>" + points + "/1</td></tr>";
+
+				if (isContent()) points = 1;
+				else points = 0;
+				total += points;
+				outStr += "<tr><td>інтерактивний зміст</td><td>" + points + "/1</td></tr>";
+
+				outStr += "<tr><td>Разом:</td><td>" + total + "/10</td></tr></table>";
+
+				outStr += "<p><em>Примітка:</em> для отримання оцінки задовільно потрібно мати не менш 20 унікальних тегів, оцінки добре та відмінно, не менш 25</p>";
+
+				out.innerHTML += outStr;
+
+				
+			}
+
+			function rate(typeTags) {
+				var points = foundTags.reduce(function (score, tag) {
+					return score + (typeTags.indexOf(tag) != -1 ? 1 : 0);
+				}, 0);
+				return points;
+			}
+
+			function isContent() {
+				var cod = editor.getValue();
+				var matchArr = cod.match(/(a\s+href\s*=\s*)(['"]*)(#)([\w]+)(['">])/gmi);
+				//var matchArr = (/(a\s+href\s*=\s*)('|")*(#)(\w)+(('|")*|(\s)|(>))/gmi).exec(cod);
+				//console.log(matchArr);
+				//console.log(matchArr == null);
+				if (matchArr == null) return false;
+				console.log(matchArr[0]);
+				var searchId = matchArr[0].replace(/(a\s+href\s*=\s*)(['"]*)(#)([\w]+)(['">])/gmi, "$4");
+				console.log(searchId);
+				var expr = new RegExp("(id\\s*=\\s*)([\'\"]*)(" + searchId + ")", "gmi");
+				if (cod.search(expr) != -1) return true;
+				return false;
+			}
+		}
+	</script>
+</body>
+
+</html>
