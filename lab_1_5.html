@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Однорядковий запис арифметичних виразів</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+
+			<h3>Однорядковий запис арифметичних виразів</h3>
+			<p>На вхід функції подається дійсне число. Необхідно повернути результат обчислення виразу:
+				<p><img src="./img/formula_1.png" alt="formula" width="150"></p>
+				</p>
+			<pre>
+Приклад:
+	Вхід: 0.5
+	Вихід: 0,8139075464243383
+	</pre>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function calc(x) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(0.5), 0.8139075464243383, 'f(0.5) = 0,8139075464243383');			
+			myEqual(f(1), 0.9099090990909908, 'f(1) = 0.9099090990909908');			
+			myEqual(f(0), 0, 'f(0) = 0');			
+			myEqual(f(0.09), 4.995331870092234, 'f(0.09) = 4.995331870092234');			
+		}
+	</script>
+</body>
+
+</html>
