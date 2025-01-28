@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Квадратне рівняння</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Квадратне рівняння</h3>
+			<p>Знайти корені квадратного рівняння <var>ax<sup>2</sup> + bx + c</var> = 0, заданого своїми коефіцієнтами
+				a, b, c (коефіцієнт a не дорівнює 0). Корені квадратного рівняння знаходяться за формулою</p>
+			<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+				<mi>x</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mrow>
+						<mo>-</mo>
+						<mi>b</mi>
+						<mo>&#x00B1;</mo>
+						<msqrt>
+							<mrow>
+								<msup>
+									<mi>b</mi>
+									<mn>2</mn>
+								</msup>
+								<mo>-</mo>
+								<mn>4</mn>
+								<mi>a</mi>
+								<mi>c</mi>
+							</mrow>
+						</msqrt>
+					</mrow>
+					<mrow>
+						<mn>2</mn>
+						<mi>a</mi>
+					</mrow>
+				</mfrac>
+			</math>
+
+			<p>Передбачити виведення двох коренів (якщо вони існують), одного кореня (якщо існує тільки один) або
+				повідомлення «дійсних коренів не існує».</p>
+			<pre>
+	Приклад 1:
+		Вхід: a = 1, b = 5, c = 4
+		Вихід: 	x1 = -1
+			x2 = -4
+				
+	Приклад 2:
+		Вхід:  a = 1, b = 4, c = 4
+		Вихід: x = -2
+
+	Приклад 3:
+		Вхід:  a = 1, b = 1, c = 1
+		Вихід: дійсних коренів не існує
+	</pre>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function quadraticRoots(a, b, c){
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(1, 5, 4), 'x1 = -1\nx2 = -4\n', 'a = 1, b = 5, c = 4 => x1 = -1 x2 = -4');
+			myEqual(f(8, 10, 2), 'x1 = -0.25\nx2 = -1\n', 'a = 8, b = 10, c = 2 => x1 = -0.25 x2 = -1');
+			myEqual(f(8, 8, 2), 'x = -0.5\n', 'a = 8, b = 8, c = 2 => x = -0.5');
+			myEqual(f(1, 1, 1), 'дійсних коренів не існує\n', 'a = 1, b = 1, c = 1 => дійсних коренів не існує');
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Вартість покупки</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Вартість покупки</h3>
+			<p>У їдальні пиріжок коштує <i>uah</i> гривень і <i>kop</i> копійок. Завдання – визначити, скільки гривень і
+				копійок потрібно заплатити за <i>n</i> пиріжків.</p>
+			<p>Програма повинна вивести два числа: вартість покупки у гривнях та копійках. Копійки не повинні
+				перевищувати
+				99.</p>
+			<pre>
+	<b>Приклад 1:</b>
+		<b>Вхід:</b>  uah = 10 kop = 15 n = 2
+		<b>Вихід:</b> [20, 30]
+	<b>Приклад 2:</b>	
+		<b>Вхід</b> uah = 2 kop = 50 n = 4
+		<b>Вихід:</b> [10, 0]
+			</pre>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function calculateTotalCost(uah, kop, n) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(10, 15, 2), [20, 30], "10 грн 15 коп за 2 пиріжки => 20 грн 30 коп");
+			myEqual(f(2, 50, 4), [10, 0], "2 грн 50 коп за 4 пиріжки => 10 грн 0 коп");
+			myEqual(f(0, 99, 100), [99, 0], "0 грн 99 коп за 100 пиріжків => 99 грн 0 коп");
+			myEqual(f(5, 0, 1), [5, 0], "5 грн 0 коп за 1 пиріжок => 5 грн 0 коп");
+			myEqual(f(1, 99, 3), [5, 97], "1 грн 99 коп за 3 пиріжки => 5 грн 97 коп");
+			myEqual(f(0, 0, 10), [0, 0], "0 грн 0 коп за 10 пиріжків => 0 грн 0 коп");
+			myEqual(f(10, 50, 0), [0, 0], "10 грн 50 коп за 0 пиріжків => 0 грн 0 коп");
+			myEqual(f(1, 0, 1000), [1000, 0], "1 грн 0 коп за 1000 пиріжків => 1000 грн 0 коп");
+		}
+	</script>
+</body>
+
+</html>

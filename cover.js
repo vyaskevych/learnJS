@@ -42,6 +42,7 @@ function myEqual(rec, exp, spec) {
 }
 
 function myDeepEqual(rec, exp) {
+	if(typeof (rec) === "string" && typeof (exp) === "string") return rec.trim() === exp.trim();
 	if (typeof (rec) != "object" && typeof (exp) != "object") return rec === exp;
 	else return JSON.stringify(rec) == JSON.stringify(exp);
 }

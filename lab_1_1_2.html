@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Електронний годинник</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Електронний годинник</h3>
+			<p>На вхід програми подається число <i>n</i>, яке задає кількість хвилин, що пройшли з початку доби.
+				Завдання – визначити, скільки годин і хвилин показуватимуть електронний годинник у цей момент. Програма
+				повинна повернути два числа: кількість годин (від 0 до 23) і кількість хвилин (від 0 до 59).</p>
+			<ul>
+				<li>Якщо число <i>n</i> перевищує кількість хвилин у добі, врахуйте, що годинник працює циклічно.</li>
+			</ul>
+			<p><b><i>Примітка: </i></b>Використовуйте операції ділення націло та остачі від ділення для визначення годин
+				і хвилин.</p>
+			<pre>
+	<b>Приклад 1:</b>
+		<b>Вхід:</b> n = 75
+		<b>Вихід:</b> [1, 15]
+	<b>Приклад 2:</b>	
+		<b>Вхід</b> 1500
+		<b>Вихід:</b> [1, 0]
+	<b>Пояснення:</b> 1500 хвилин – це 1 година і 0 хвилин після початку доби, враховуючи циклічність годинника.
+			</pre>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function timeOnClock(n) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(75), [1, 15], "75 хв => 1 год 15 хв");
+			myEqual(f(45), [0, 45], "45 хв => 0 год 45 хв");
+			myEqual(f(59), [0, 59], "59 хв => 0 год 59 хв");
+			myEqual(f(120), [2, 0], "120 хв => 2 год 0 хв");
+			myEqual(f(249), [4, 9], "249 хв => 4 год 9 хв");
+			myEqual(f(0), [0, 0], "0 хв => 0 год 0 хв");
+			myEqual(f(1510), [1, 10], "1510 хв => 25 год 10 хв => 1 год 10 хв");
+			myEqual(f(1440), [0, 0], "1440 хв => 24 год 0 хв => 1 год 0 хв");
+			myEqual(f(10_000), [22, 40], "10 000 хв => 166 год 40 хв => 22 год 40 хв");
+		}
+	</script>
+</body>
+
+</html>

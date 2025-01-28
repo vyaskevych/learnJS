@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Хід тури</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Хід тури</h3>
+			<p>Вася вирішив навчити свого молодшого брата грати в шахи. Але ось біда, брат ще занадто малий і ніяк не
+				може запам'ятати, як ходить <a href="https://uk.wikipedia.org/wiki/%D0%A2%D1%83%D1%80%D0%B0"
+					target="_blank">тура</a>. Як справжній програміст, Вася вирішив автоматизувати процес навчання
+				початківців шахістів. Допоможіть йому написати програму, яка визначає, чи є коректним хід тури.
+				Координати вихідної та кінцевої позиції ходу передаються рядком у звичайній шаховій нотації, наприклад,
+				"a1".</p>
+			<p>Тура ходить по горизонталі або вертикалі на будь-яку кількість клітинок, тому хід є коректним, якщо або
+				номери рядків однакові, або букви стовпців збігаються.</p>
+			<p>Як завжди, постарайтеся вразити Васю красою і простотою отриманого коду!</p>
+			<div><em>Примітка:</em> завдання буде легше виконати, якщо звернути увагу на наступні методи обробки
+				рядків <a href="https://www.w3schools.com/jsref/jsref_charat.asp" target="_blank">charAt()</a> та <a
+					href="https://www.w3schools.com/jsref/jsref_charcodeat.asp" target="_blank">charCodeAt()</a>.</div>
+			<pre>
+	<b>Приклад 1:</b>
+		<b>Вхід:</b>  start = "a1", end = "a8"  
+		<b>Вихід:</b> true 
+		<b>Пояснення:</b> Хід з "a1" до "a8" коректний, оскільки тура рухається вертикально.
+	<b>Приклад 2:</b> 
+		<b>Вхід:</b> start = "a1", end = "b2" 
+		<b>Вихід:</b> false
+		<b>Пояснення:</b> Хід з "a1" до "b2" некоректний, оскільки тура не може рухатися діагонально. </pre>
+			</pre>
+
+		</section>
+		<section class="work">
+			<pre id="editor">
+function isRookMoveValid(start, end) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f("a1", "a8"), true, '"a1" -> "a8" (вертикальний хід) має бути коректним');
+			myEqual(f("a1", "h1"), true, '"a1" -> "h1" (горизонтальний хід) має бути коректним');
+			myEqual(f("a1", "b2"), false, '"a1" -> "b2" (діагональний хід) має бути некоректним');
+			myEqual(f("d4", "d4"), false, '"d4" -> "d4" (та сама клітинка) має бути некоректним');
+			myEqual(f("h8", "h1"), true, '"h8" -> "h1" (вертикальний хід) має бути коректним');
+			myEqual(f("h8", "a8"), true, '"h8" -> "a8" (горизонтальний хід) має бути коректним');
+			myEqual(f("h8", "a1"), false, '"h8" -> "a1" (діагональний хід) має бути некоректним');
+		}
+	</script>
+</body>
+
+</html>

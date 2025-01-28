@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Відмінники</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Відмінники</h3>
+			<p>Дописати у вікні нижче функцію, яка повертає список студентів, що мають оцінки не менше С(75 балів) з
+				кожної дисципліни.</p>
+			<p>Дані про студентів зберігаються в масиві об'єктів, таких як
+				<code>{ name: 'Андрій', surname: "Бульба", oop: 75, web: 62, aos: 69, discrete_mathematics: 86 }</code>
+			</p>
+			<p><em><strong>Наприклад</strong></em></p>
+			<pre>
+Вхід: 
+[
+  { name: 'Андрій', surname: 'Бульба', oop: 75, web: 62, aos: 69, discrete_mathematics: 86 },
+  { name: 'Іван', surname: 'Петренко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
+  { name: 'Марія', surname: 'Ковальчук', oop: 75, web: 75, aos: 82, discrete_mathematics: 80 },
+  { name: 'Олексій', surname: 'Сидоренко', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
+  { name: 'Оксана', surname: 'Лисенко', oop: 78, web: 68, aos: 74, discrete_mathematics: 85 }
+];
+Вихід: ['Ковальчук Марія', 'Сидоренко Олексій']
+			</pre>
+
+		</section>
+		<section class="work">
+			<pre id="editor">
+function getStudentsWithGoodGrades(students) { 
+	// Write your code here 
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		const array0 = [
+				{ name: 'Андрій', surname: 'Бульба', grades: {oop: 75, web: 62, aos: 69, discrete_mathematics: 86} },
+				{ name: 'Іван', surname: 'Петренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
+				{ name: 'Марія', surname: 'Ковальчук', grades: {oop: 75, web: 75, aos: 82, discrete_mathematics: 80} },
+				{ name: 'Олексій', surname: 'Сидоренко', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
+				{ name: 'Оксана', surname: 'Лисенко', grades: {oop: 78, web: 68, aos: 74, discrete_mathematics: 85} }
+			]
+		const array1 = [
+			{ name: 'Ігор', surname: 'Павленко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
+			{ name: 'Наталія', surname: 'Мельник', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} },
+			{ name: 'Анна', surname: 'Коваль', grades: {oop: 78, web: 90, aos: 85, discrete_mathematics: 80} },
+			{ name: 'Дмитро', surname: 'Козлов', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
+			{ name: 'Олена', surname: 'Іванова', grades: {oop: 75, web: 68, aos: 74, discrete_mathematics: 85} },
+			{ name: 'Артем', surname: 'Сидоренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
+			{ name: 'Катерина', surname: 'Петренко', grades: {oop: 68, web: 75, aos: 72, discrete_mathematics: 80} }
+		];
+		const array3 = [
+			{ name: 'Тетяна', surname: 'Петренко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
+			{ name: 'Максим', surname: 'Сидоренко', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} },
+			{ name: 'Євгенія', surname: 'Коваленко', grades: {oop: 78, web: 90, aos: 85, discrete_mathematics: 80} },
+			{ name: 'Роман', surname: 'Ковальчук', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
+			{ name: 'Дарина', surname: 'Іванова', grades: {oop: 75, web: 68, aos: 74, discrete_mathematics: 85} },
+			{ name: 'Сергій', surname: 'Сергієнко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
+			{ name: 'Наталя', surname: 'Григоренко', grades: {oop: 68, web: 75, aos: 72, discrete_mathematics: 80} },
+			{ name: 'Володимир', surname: 'Кузьменко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
+			{ name: 'Маргарита', surname: 'Іванова', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} }
+		];
+
+		// Масив з 8 елементів
+		const array4 = [
+			{ name: 'Олександра', surname: 'Павленко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
+			{ name: 'Михайло', surname: 'Мельник', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} },
+			{ name: 'Єлизавета', surname: 'Коваль', grades: {oop: 78, web: 90, aos: 85, discrete_mathematics: 80} },
+			{ name: 'Андріан', surname: 'Кравчук', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
+			{ name: 'Надія', surname: 'Іванова', grades: {oop: 75, web: 68, aos: 74, discrete_mathematics: 85} },
+			{ name: 'Олександр', surname: 'Сидоренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
+			{ name: 'Євген', surname: 'Петренко', grades: {oop: 68, web: 75, aos: 72, discrete_mathematics: 80} },
+			{ name: 'Тетяна', surname: 'Лисенко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} }
+		];
+		function myTest() {
+			myEqual(f(array0), ['Ковальчук Марія', 'Сидоренко Олексій'], JSON.stringify(array0));
+			myEqual(f(array1), ['Коваль Анна', 'Козлов Дмитро'], JSON.stringify(array1));
+			myEqual(f(array3), ['Коваленко Євгенія', 'Ковальчук Роман'], JSON.stringify(array3));
+			myEqual(f(array4), ['Коваль Єлизавета', 'Кравчук Андріан'], JSON.stringify(array4));			
+		}
+	</script>
+</body>
+
+</html>

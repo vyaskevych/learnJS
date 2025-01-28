@@ -5,31 +5,25 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-	<title>Калькулятор</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Зроби то, не знаю що</title>
 	<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 	<div class="container">
 		<section class="description">
-			<h3>Калькулятор</h3>
-			<p>Реалізувати функцію калькулятор. Функція приймає на вхід рядок з арифметичним
-				виразом і повертає результат обчислення, що округлений до одного десяткового знака.
-				У вхідному рядку числа та знак операції розділені пробілом.
-			</p>
-			<p><b><i>Примітка:</i></b> розв'язати завдання необхідно без використання команд розгалуження
-				(<code>if else, switch, тернарний оператор</code>), та команди <code>eval</code>
-			</p>
-
+			<h3>Зроби то, не знаю що</h3>
+			<p>Завдання-загадка. Завдання немає – так і задумано. Не бійтеся експериментувати. Запустіть код на
+				виконання та уважно вивчіть помилки. Орієнтуючись на текст помилок, спробуйте самі зрозуміти, що
+				потрібно зробити.</p>
 		</section>
 		<section class="work">
-
 			<pre id="editor">
-function calc (expr) {  
-	// Write your code here
+function decode(){
+	//insert
 }
-			</pre>
+	</pre>
 			<br>
 			<select name="" id="selectTheme">
 				<option value="">chrome</option>
@@ -57,13 +51,15 @@ function calc (expr) {
 	<script src="cover.js"></script>
 	<script>
 		function myTest() {
-			myEqual(f("1 + 1"), 2.0, '"1 + 1" => 2.0');
-			myEqual(f("10 / 2"), 5.0, '"10 / 2" => 5.0');
-			myEqual(f("3 * 4"), 12.0, '"3 * 4" => 12.0');
-			myEqual(f("7 - 5"), 2.0, '"7 - 5" => 2.0');
-			myEqual(f("20 / 7"), 2.9, '"20 / 7" => 2.9');
-			myEqual(f("9 + 3"), 12.0, '"9 + 3" => 12.0');
-			myEqual(f("10 / 3"), 3.3, '"10 / 3" => 3.3');
+			myEqual(f('0').valueOf(), 0, 'Decode(0) = 0');
+			myEqual(f('123').valueOf(), 123, 'Decode(123) = 123');
+			myEqual(f('1.23').valueOf(), 123, 'Decode(1.23) = 123');
+			myEqual(f('1...2..3').valueOf(), 123, 'Decode(1...2..3) = 123');
+			myEqual(f('1010').valueOf(), 1010, 'Decode(1010) = 1010');
+			myEqual(f('1025').valueOf(), 1, 'Decode(1025) = 1');
+			myEqual(f('1..02.6').valueOf(), 2, 'Decode(1..02.6) = 2');
+			const res = f('2..0...5....9').valueOf(); 
+			myEqual(res === 11, true, 'Additional secret tests');
 		}
 	</script>
 </body>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Електронний годинник 2</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Електронний годинник</h3>
+			<p>На вхід програми подається число <i>n</i>, яке задає кількість секунд, що пройшли з початку доби.
+				Завдання – визначити, який час показуватимуть електронний годинник у форматі <b>h:mm:ss</b>, де:</p>
+			<ul>
+				<li><b>h</b> – кількість годин (від 0 до 23),</li>
+				<li><b>mm</b> – кількість хвилин (обов’язково двозначне число),</li>
+				<li><b>ss</b> – кількість секунд (обов’язково двозначне число).</li>
+			</ul>
+			<p>Кількість хвилин і секунд доповнюється нулями, якщо потрібно. Якщо число <i>n</i> перевищує кількість
+				секунд у добі, врахуйте, що годинник працює циклічно.</p>
+			<p><b><i>Примітка:</i></b> Використовуйте операції ділення націло та остачі від ділення для визначення
+				годин, хвилин і секунд. Не використовуйте умовні конструкції.</p>
+			<pre>
+	<b>Приклад 1:</b>
+		<b>Вхід:</b> n = 3661 
+		<b>Вихід:</b> "1:01:01" 
+	<b>Приклад 2:</b> 
+		<b>Вхід:</b> n = 86400 
+		<b>Вихід:</b> "0:00:00"
+			</pre>
+			<p><b>Пояснення:</b> У першому прикладі 3661 секунд – це 1 година, 1 хвилина і 1 секунда після початку доби.
+				У
+				другому прикладі 86400 секунд – це рівно 24 години, що відповідає початку нової доби. </p>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function timeOnClock(n) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f(3661), "1:01:01", "3661 с => 1 год 1 хв 1 с");
+			myEqual(f(86400), "0:00:00", "86400 с => 24 год 0 хв 0 с => 0 год 0 хв 0 с");
+			myEqual(f(59), "0:00:59", "59 с => 0 год 0 хв 59 с");
+			myEqual(f(1245), "0:20:45", "1245 с => 0 год 20 хв 45 с");
+			myEqual(f(3600), "1:00:00", "3600 с => 1 год 0 хв 0 с");
+			myEqual(f(86399), "23:59:59", "86399 с => 23 год 59 хв 59 с");
+			myEqual(f(0), "0:00:00", "0 с => 0 год 0 хв 0 с");
+			myEqual(f(10000), "2:46:40", "10 000 с => 2 год 46 хв 40 с");
+			myEqual(f(90061), "1:01:01", "90 061 с => 25 год 1 хв 1 с => 1 год 1 хв 1 с");
+			myEqual(f(172800), "0:00:00", "172800 с => 48 год 0 хв 0 с => 0 год 0 хв 0 с");
+		}
+	</script>
+</body>
+
+</html>

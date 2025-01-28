@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Математичний інтерпретатор</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Математичний інтерпретатор</h3>
+			<p>JavaScript дозволяє виконувати арифметичні операції, але давайте реалізуємо функцію, яка дозволяє
+				користувачам обчислювати прості математичні вирази у вигляді рядка.</p>
+			<p>Реалізуйте функцію <code>mathInterpreter(expression)</code>, яка приймає на вхід рядок з арифметичним
+				виразом і повертає результат обчислення у вигляді числа з плаваючою комою, відформатованого до
+				одного
+				десяткового знака. Припустимо, що вхідний рядок має формат <code>x y z</code>, де між <code>x</code>
+				і
+				<code>y</code>, а також між <code>y</code> і <code>z</code> є один пробіл. У цьому форматі:
+			</p>
+			<ul>
+				<li><code>x</code> – ціле число;</li>
+				<li><code>y</code> – <code>+</code>, <code>-</code>, <code>*</code> або <code>/</code>;</li>
+				<li><code>z</code> – ціле число.</li>
+			</ul>
+			<p>Наприклад, якщо функція отримує на вхід рядок <code>"1 + 1"</code>, вона має повернути
+				<code>2.0</code>.
+				Припустимо, що якщо <code>y</code> – це <code>/</code>, то <code>z</code> не буде рівним 0.
+			</p>
+			<pre>
+	Приклад 1:
+		Вхід: "1 + 1"
+		Вихід: 	2.0
+				
+	Приклад 2:
+		Вхід:  "10 / 2"
+		Вихід: 5.0
+
+	Приклад 3:
+		Вхід:  "3 * 4"
+		Вихід: 12.0
+	</pre>
+			<div>
+				<p><em>Примітка:</em> Під час виконання завдання <b>не використовувати</b> функцію
+					<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval">eval</a></code>
+				</p>
+				<p>Для розділення вхідного рядка на складові можна використати метод
+					<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">split</a></code>
+					та команду
+					<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></code>
+				</p>
+				<p><code>const [x, y, z] = expression.split(" ")</code></p>
+			</div>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function mathInterpreter(expression){
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f("1 + 1"), 2.0, '"1 + 1" => 2.0');
+			myEqual(f("10 / 2"), 5.0, '"10 / 2" => 5.0');
+			myEqual(f("3 * 4"), 12.0, '"3 * 4" => 12.0');
+			myEqual(f("7 - 5"), 2.0, '"7 - 5" => 2.0');
+			myEqual(f("20 / 7"), 2.9, '"20 / 7" => 2.9');
+			myEqual(f("9 + 3"), 12.0, '"9 + 3" => 12.0');
+			myEqual(f("10 / 3"), 3.3, '"10 / 3" => 3.3');
+		}
+	</script>
+</body>
+
+</html>
