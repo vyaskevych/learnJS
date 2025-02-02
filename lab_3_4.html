@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Сортування стовпців матриці</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Сортування стовпців матриці</h3>
+			<p>Дано матрицю чисел. Необхідно відсортувати кожен стовпець матриці за спаданням значень.</p>
+			<p>Матриця подається як двовимірний масив, де кожен елемент є числом. Завдання полягає в тому, щоб
+				кожен стовпець матриці відсортувати в порядку спадання.</p>
+			<pre>
+	<b>Приклад 1:</b>
+		<b>Вхід:</b>  [ [3, 1, 2], 
+			 [9, 4, 6], 
+			 [7, 5, 8] ]  
+		<b>Вихід:</b> [ [9, 5, 8], 
+			 [7, 4, 6], 
+			 [3, 1, 2] ] 
+	<b>Приклад 2:</b> 	
+		<b>Вхід:</b>  [ [1, 2], 
+			 [3, 4] ] 
+		<b>Вихід:</b> [ [3, 4], 
+			 [1, 2] ]
+			</pre>
+
+		</section>
+		<section class="work">
+			<pre id="editor">
+function sortColumns(matrix) {
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f([[3, 1, 2], [9, 4, 6], [7, 5, 8]]), [[9, 5, 8], [7, 4, 6], [3, 1, 2]], 'Матриця: [[3, 1, 2], [9, 4, 6], [7, 5, 8]] => [[9, 5, 8], [7, 4, 6], [3, 1, 2]]');
+			myEqual(f([[1, 2], [3, 4]]), [[3, 4], [1, 2]], 'Матриця: [[1, 2], [3, 4]] => [[3, 4], [1, 2]]');
+			myEqual(f([[5, 3], [7, 2], [9, 1]]), [[9, 3], [7, 2], [5, 1]], 'Матриця: [[5, 3], [7, 2], [9, 1]] => [[9, 3], [7, 2], [5, 1]]');
+			myEqual(f([[10, 15], [5, 20], [30, 25]]), [[30, 25], [10, 20], [5, 15]], 'Матриця: [[10, 15], [5, 20], [30, 25]] => [[30, 25], [10, 20], [5, 15]]');
+			// 2x3 матриця
+			myEqual(f([[1, 2, 3], [6, 5, 4]]), [[6, 5, 4], [1, 2, 3]], 'Матриця: [[1, 2, 3], [6, 5, 4]] => [[6, 5, 3], [1, 2, 4]]');
+
+			// 3x4 матриця
+			myEqual(f([[1, 4, 3, 2], [7, 8, 6, 5], [9, 12, 10, 11]]), [[9, 12, 10, 11], [7, 8, 6, 5], [1, 4, 3, 2]], 'Матриця: [[1, 4, 3, 2], [7, 8, 6, 5], [9, 12, 10, 11]] => [[9, 12, 10, 11], [7, 8, 6, 5], [1, 4, 3, 2]]');
+		}
+	</script>
+</body>
+
+</html>
