@@ -22,11 +22,11 @@
 			<pre>
 Вхід: 
 [
-  { name: 'Андрій', surname: 'Бульба', oop: 75, web: 62, aos: 69, discrete_mathematics: 86 },
-  { name: 'Іван', surname: 'Петренко', oop: 82, web: 70, aos: 78, discrete_mathematics: 90 },
-  { name: 'Марія', surname: 'Ковальчук', oop: 75, web: 75, aos: 82, discrete_mathematics: 80 },
-  { name: 'Олексій', surname: 'Сидоренко', oop: 90, web: 85, aos: 92, discrete_mathematics: 88 },
-  { name: 'Оксана', surname: 'Лисенко', oop: 78, web: 68, aos: 74, discrete_mathematics: 85 }
+  { name: 'Андрій', surname: 'Бульба', grades: {oop: 75, web: 62, aos: 69, discrete_mathematics: 86} },
+  { name: 'Іван', surname: 'Петренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
+  { name: 'Марія', surname: 'Ковальчук', grades: {oop: 75, web: 75, aos: 82, discrete_mathematics: 80} },
+  { name: 'Олексій', surname: 'Сидоренко', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
+  { name: 'Оксана', surname: 'Лисенко', grades: {oop: 78, web: 68, aos: 74, discrete_mathematics: 85} }
 ];
 Вихід: ['Ковальчук Марія', 'Сидоренко Олексій']
 			</pre>
@@ -65,49 +65,49 @@ function getStudentsWithGoodGrades(students) {
 	<script src="cover.js"></script>
 	<script>
 		const array0 = [
-				{ name: 'Андрій', surname: 'Бульба', grades: {oop: 75, web: 62, aos: 69, discrete_mathematics: 86} },
-				{ name: 'Іван', surname: 'Петренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
-				{ name: 'Марія', surname: 'Ковальчук', grades: {oop: 75, web: 75, aos: 82, discrete_mathematics: 80} },
-				{ name: 'Олексій', surname: 'Сидоренко', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
-				{ name: 'Оксана', surname: 'Лисенко', grades: {oop: 78, web: 68, aos: 74, discrete_mathematics: 85} }
-			]
+			{ name: 'Андрій', surname: 'Бульба', grades: { oop: 75, web: 62, aos: 69, discrete_mathematics: 86 } },
+			{ name: 'Іван', surname: 'Петренко', grades: { oop: 82, web: 70, aos: 78, discrete_mathematics: 90 } },
+			{ name: 'Марія', surname: 'Ковальчук', grades: { oop: 75, web: 75, aos: 82, discrete_mathematics: 80 } },
+			{ name: 'Олексій', surname: 'Сидоренко', grades: { oop: 90, web: 85, aos: 92, discrete_mathematics: 88 } },
+			{ name: 'Оксана', surname: 'Лисенко', grades: { oop: 78, web: 68, aos: 74, discrete_mathematics: 85 } }
+		]
 		const array1 = [
-			{ name: 'Ігор', surname: 'Павленко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
-			{ name: 'Наталія', surname: 'Мельник', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} },
-			{ name: 'Анна', surname: 'Коваль', grades: {oop: 78, web: 90, aos: 85, discrete_mathematics: 80} },
-			{ name: 'Дмитро', surname: 'Козлов', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
-			{ name: 'Олена', surname: 'Іванова', grades: {oop: 75, web: 68, aos: 74, discrete_mathematics: 85} },
-			{ name: 'Артем', surname: 'Сидоренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
-			{ name: 'Катерина', surname: 'Петренко', grades: {oop: 68, web: 75, aos: 72, discrete_mathematics: 80} }
+			{ name: 'Ігор', surname: 'Павленко', grades: { oop: 85, web: 78, aos: 92, discrete_mathematics: 70 } },
+			{ name: 'Наталія', surname: 'Мельник', grades: { oop: 70, web: 82, aos: 75, discrete_mathematics: 88 } },
+			{ name: 'Анна', surname: 'Коваль', grades: { oop: 78, web: 90, aos: 85, discrete_mathematics: 80 } },
+			{ name: 'Дмитро', surname: 'Козлов', grades: { oop: 90, web: 85, aos: 92, discrete_mathematics: 88 } },
+			{ name: 'Олена', surname: 'Іванова', grades: { oop: 75, web: 68, aos: 74, discrete_mathematics: 85 } },
+			{ name: 'Артем', surname: 'Сидоренко', grades: { oop: 82, web: 70, aos: 78, discrete_mathematics: 90 } },
+			{ name: 'Катерина', surname: 'Петренко', grades: { oop: 68, web: 75, aos: 72, discrete_mathematics: 80 } }
 		];
 		const array3 = [
-			{ name: 'Тетяна', surname: 'Петренко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
-			{ name: 'Максим', surname: 'Сидоренко', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} },
-			{ name: 'Євгенія', surname: 'Коваленко', grades: {oop: 78, web: 90, aos: 85, discrete_mathematics: 80} },
-			{ name: 'Роман', surname: 'Ковальчук', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
-			{ name: 'Дарина', surname: 'Іванова', grades: {oop: 75, web: 68, aos: 74, discrete_mathematics: 85} },
-			{ name: 'Сергій', surname: 'Сергієнко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
-			{ name: 'Наталя', surname: 'Григоренко', grades: {oop: 68, web: 75, aos: 72, discrete_mathematics: 80} },
-			{ name: 'Володимир', surname: 'Кузьменко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
-			{ name: 'Маргарита', surname: 'Іванова', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} }
+			{ name: 'Тетяна', surname: 'Петренко', grades: { oop: 85, web: 78, aos: 92, discrete_mathematics: 70 } },
+			{ name: 'Максим', surname: 'Сидоренко', grades: { oop: 70, web: 82, aos: 75, discrete_mathematics: 88 } },
+			{ name: 'Євгенія', surname: 'Коваленко', grades: { oop: 78, web: 90, aos: 85, discrete_mathematics: 80 } },
+			{ name: 'Роман', surname: 'Ковальчук', grades: { oop: 90, web: 85, aos: 92, discrete_mathematics: 88 } },
+			{ name: 'Дарина', surname: 'Іванова', grades: { oop: 75, web: 68, aos: 74, discrete_mathematics: 85 } },
+			{ name: 'Сергій', surname: 'Сергієнко', grades: { oop: 82, web: 70, aos: 78, discrete_mathematics: 90 } },
+			{ name: 'Наталя', surname: 'Григоренко', grades: { oop: 68, web: 75, aos: 72, discrete_mathematics: 80 } },
+			{ name: 'Володимир', surname: 'Кузьменко', grades: { oop: 85, web: 78, aos: 92, discrete_mathematics: 70 } },
+			{ name: 'Маргарита', surname: 'Іванова', grades: { oop: 70, web: 82, aos: 75, discrete_mathematics: 88 } }
 		];
 
 		// Масив з 8 елементів
 		const array4 = [
-			{ name: 'Олександра', surname: 'Павленко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} },
-			{ name: 'Михайло', surname: 'Мельник', grades: {oop: 70, web: 82, aos: 75, discrete_mathematics: 88} },
-			{ name: 'Єлизавета', surname: 'Коваль', grades: {oop: 78, web: 90, aos: 85, discrete_mathematics: 80} },
-			{ name: 'Андріан', surname: 'Кравчук', grades: {oop: 90, web: 85, aos: 92, discrete_mathematics: 88} },
-			{ name: 'Надія', surname: 'Іванова', grades: {oop: 75, web: 68, aos: 74, discrete_mathematics: 85} },
-			{ name: 'Олександр', surname: 'Сидоренко', grades: {oop: 82, web: 70, aos: 78, discrete_mathematics: 90} },
-			{ name: 'Євген', surname: 'Петренко', grades: {oop: 68, web: 75, aos: 72, discrete_mathematics: 80} },
-			{ name: 'Тетяна', surname: 'Лисенко', grades: {oop: 85, web: 78, aos: 92, discrete_mathematics: 70} }
+			{ name: 'Олександра', surname: 'Павленко', grades: { oop: 85, web: 78, aos: 92, discrete_mathematics: 70 } },
+			{ name: 'Михайло', surname: 'Мельник', grades: { oop: 70, web: 82, aos: 75, discrete_mathematics: 88 } },
+			{ name: 'Єлизавета', surname: 'Коваль', grades: { oop: 78, web: 90, aos: 85, discrete_mathematics: 80 } },
+			{ name: 'Андріан', surname: 'Кравчук', grades: { oop: 90, web: 85, aos: 92, discrete_mathematics: 88 } },
+			{ name: 'Надія', surname: 'Іванова', grades: { oop: 75, web: 68, aos: 74, discrete_mathematics: 85 } },
+			{ name: 'Олександр', surname: 'Сидоренко', grades: { oop: 82, web: 70, aos: 78, discrete_mathematics: 90 } },
+			{ name: 'Євген', surname: 'Петренко', grades: { oop: 68, web: 75, aos: 72, discrete_mathematics: 80 } },
+			{ name: 'Тетяна', surname: 'Лисенко', grades: { oop: 85, web: 78, aos: 92, discrete_mathematics: 70 } }
 		];
 		function myTest() {
 			myEqual(f(array0), ['Ковальчук Марія', 'Сидоренко Олексій'], JSON.stringify(array0));
 			myEqual(f(array1), ['Коваль Анна', 'Козлов Дмитро'], JSON.stringify(array1));
 			myEqual(f(array3), ['Коваленко Євгенія', 'Ковальчук Роман'], JSON.stringify(array3));
-			myEqual(f(array4), ['Коваль Єлизавета', 'Кравчук Андріан'], JSON.stringify(array4));			
+			myEqual(f(array4), ['Коваль Єлизавета', 'Кравчук Андріан'], JSON.stringify(array4));
 		}
 	</script>
 </body>

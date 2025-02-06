@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Масив</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Кульки</h3>
+			<p> В одній комп'ютерній грі гравець виставляє в лінію кульки різних кольорів.
+				Коли утворюється безперервний ланцюжок з трьох і більше кульок одного кольору,
+				вона видаляється з лінії. Всі кульки при цьому зсуваються один до одного, і
+				ситуація може повторитися.
+
+				Напишіть функцію, яка по даній ситуації визначає, скільки кульок буде
+				"знищено". Природно, безперервних ланцюжків з трьох і більше одноколірних куль в
+				початковий момент може бути не більше одного.
+			</p>
+
+			<pre>
+	Приклад 1:
+		Вхід: [5, 1, 3, 3, 3, 2]
+		Вихід: 3
+				
+	Приклад 2:
+		Вхід: [5, 1, 3, 4, 3, 3]
+		Вихід: 0	
+	</pre>
+		</section>
+		<section class="work">
+			<pre id="editor">
+function countDel(arr){
+	//insert
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
+		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		function myTest() {
+			myEqual(f([5, 1, 3, 3, 3, 2]), 3, '[5, 1, 3, 3, 3, 2] => 3');
+			myEqual(f([5, 1, 2, 3, 3, 3]), 3, '[5, 1, 2, 3, 3, 3] => 3');
+			myEqual(f([3, 3, 3, 2]), 3, '[3, 3, 3, 2] => 3');
+			myEqual(f([5, 1, 3, 4, 3, 3]), 0, '[5, 1, 3, 4, 3, 3] => 0');
+			myEqual(f([5, 1, 3, 3, 4, 3, 3]), 0, '[5, 1, 3, 3, 4, 3, 3] => 0');
+			myEqual(f([5, 1, 3, 3, 3, 1, 1, 2]), 6, '[5, 1, 3, 3, 3, 1, 1, 2] => 6');
+			myEqual(f([9, 5, 5, 1, 3, 3, 3, 1, 1, 5, 5]), 10, '[9, 5, 5, 1, 3, 3, 3, 1, 1, 5, 5] => 10');
+		}
+	</script>
+</body>
+
+</html>
