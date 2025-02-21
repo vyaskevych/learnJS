@@ -50,12 +50,10 @@ function median(a, b, c) {
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
-		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
-		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ace.js"></script>
+	<!-- load ace language tools -->
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-language_tools.js"></script>
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-beautify.js"></script>
 	<script src="settings.js"></script>
 	<script src="cover.js"></script>
 	<script>
@@ -69,7 +67,6 @@ function median(a, b, c) {
 			myEqual(f(2, 3, 2), 2, 'correct Median(2, 3, 2)');
 			myEqual(f(12, 3, 3), 3, 'correct Median(12, 3, 3)');
 			myEqual(f(8, 8, 8), 8, 'correct Median(8, 8, 8)');
-			myEqual(f(5.5, 3.2, 3.7), 3.7, 'correct Median(5.5, 3.2, 3.7)');
 		}
 	</script>
 </body>

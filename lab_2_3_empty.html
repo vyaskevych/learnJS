@@ -5,37 +5,41 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-	<title>Матриця</title>
+	<title>Трикутник</title>
 	<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 	<div class="container">
 		<section class="description">
-			<h3>Матриця</h3>
-			<p>Дано ціле число <var>n</var>, необхідно створити матрицю чисел розміром <var>n</var> x
-				<var>n</var>. Матрицю заповнити
-				числами в діапазоні від 1 до n<sup>2</sup>. Числа, що розташовані на діагоналях матриці замінити на *.
-
-			</p>
+			<h3>Трикутник</h3>
+			<p>Програма має побудувати трикутник з елементів #. Кількість ліній задає користувач.</p>
+			<p><b><i>Наприклад</i></b></p>
+			<p><b>Вхідні дані: <i></i>7</i></b></p>
+			<p><b>Результат роботи:</b>
 			<pre>
-	Приклад 1:
-		Вхід: 5
-		Вихід: 
-		* 2 3 4 *
-		6 * 8 * 10
-		11 12 * 14 15
-		16 * 18 * 20
-		* 22 23 24 *</pre>
-
+#
+##
+###
+####
+#####
+######
+#######
+	</pre>
+			</p>
+			<details>
+				<summary>Підказки</summary>
+				<p>Для перенесення рядка можна використати escape послідовність <code>"\n"</code> </p>
+			</details>
 		</section>
 		<section class="work">
 
 			<pre id="editor">
-function createMatrix (n) {  
-	// Write your code here
+function draw(count){
+	//insert
 }
-			</pre>
+	</pre>
 			<br>
 			<select name="" id="selectTheme">
 				<option value="">chrome</option>
@@ -58,14 +62,16 @@ function createMatrix (n) {
 	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-language_tools.js"></script>
 	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-beautify.js"></script>
 	<script src="settings.js"></script>
+
+	<script src=""></script>
+
+
 	<script src="cover.js"></script>
 	<script>
 		function myTest() {
-			myEqual(f(5), [['*', 2, 3, 4, '*'], [6, '*', 8, '*', 10], [11, 12, '*', 14, 15], [16, '*', 18, '*', 20], ['*', 22, 23, 24, '*']], 'n = 5');
-			myEqual(f(4), [['*', 2, 3, '*'], [5, '*', '*', 8], [9, '*', '*', 12], ['*', 14, 15, '*']], 'n = 4');
-			myEqual(f(3), [['*', 2, '*'], [4, '*', 6], ['*', 8, '*']], 'n = 3');
-			myEqual(f(2), [['*', '*'], ['*', '*']], 'n = 2');
-			myEqual(f(1), [['*']], 'n = 1');
+			myEqual(f(5), '#\n##\n###\n####\n#####\n', '5 line');
+			myEqual(f(2), '#\n##\n', '2 line');
+			myEqual(f(8), '#\n##\n###\n####\n#####\n######\n#######\n########\n', '8 line');
 
 		}
 	</script>

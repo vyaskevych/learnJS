@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+	<title>Найкращий студент з </title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<section class="description">
+			<h3>Найкращий студент з </h3>
+			<p>Дописати у вікні нижче функцію, яка визначає студента, який має найвищу оцінку з конкретного предмета.
+			</p>
+			<p>Дані про студентів зберігаються в масиві об'єктів, таких як
+			<pre><code>{
+	name: 'Андрій',
+	surname: 'Бульба',
+	grades: [
+	  { subject: 'oop', grade: 75 },
+	  { subject: 'web', grade: 62 },
+	  { subject: 'aos', grade: 69 },
+	  { subject: 'discrete_mathematics', grade: 86 }
+	]
+}</code></pre>
+			</p>
+			<p><em><strong>Наприклад</strong></em></p>
+			<pre>
+Вхід: Масив студентів і назва предмета.
+Вихід: Об'єкт { name, surname, grade } студента з найвищою оцінкою з цього предмета.
+			</pre>
+
+		</section>
+		<section class="work">
+			<pre id="editor">
+function getTopStudentInSubject(students, subject) {
+	return students
+		.map(student => {
+			let gradeObj = student.grades.find(grade => grade.subject === subject);
+			return gradeObj ? { name: student.name, surname: student.surname, grade: gradeObj.grade } : null;
+		})
+		.filter(student => student !== null)
+		.reduce((best, student) => (student.grade > best.grade ? student : best), { grade: -1 });
+}
+	</pre>
+			<br>
+			<select name="" id="selectTheme">
+				<option value="">chrome</option>
+				<option value="">monokai</option>
+				<option value="">twilight</option>
+				<option value="">eclipse</option>
+				<option value="">cobalt</option>
+			</select>
+			<input type="number" name="" id="font_size" min=1>
+			<input type="button" id="goTest" value="Перевірити">
+			<input type="button" id="loadLast" value="Відновити">
+			<br>
+		</section>
+	</div>
+	<div id="outRes"></div>
+
+
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ace.js"></script>
+	<!-- load ace ext -->
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-language_tools.js"></script>
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-beautify.js"></script>
+
+	<script src="settings.js"></script>
+	<script src="cover.js"></script>
+	<script>
+		const array0 = [
+			{
+				name: 'Андрій',
+				surname: 'Бульба',
+				grades: [
+					{ subject: 'oop', grade: 75 },
+					{ subject: 'web', grade: 58 },
+					{ subject: 'aos', grade: 69 },
+					{ subject: 'discrete_mathematics', grade: 86 }
+				]
+			},
+			{
+				name: 'Іван',
+				surname: 'Петренко',
+				grades: [
+					{ subject: 'oop', grade: 82 },
+					{ subject: 'web', grade: 70 },
+					{ subject: 'aos', grade: 78 },
+					{ subject: 'discrete_mathematics', grade: 90 }
+				]
+			},
+			{
+				name: 'Марія',
+				surname: 'Ковальчук',
+				grades: [
+					{ subject: 'oop', grade: 75 },
+					{ subject: 'web', grade: 75 },
+					{ subject: 'aos', grade: 45 },
+					{ subject: 'discrete_mathematics', grade: 80 }
+				]
+			},
+			{
+				name: 'Олексій',
+				surname: 'Сидоренко',
+				grades: [
+					{ subject: 'oop', grade: 93 },
+					{ subject: 'web', grade: 85 },
+					{ subject: 'aos', grade: 92 },
+					{ subject: 'discrete_mathematics', grade: 88 }
+				]
+			},
+			{
+				name: 'Оксана',
+				surname: 'Лисенко',
+				grades: [
+					{ subject: 'oop', grade: 78 },
+					{ subject: 'web', grade: 60 },
+					{ subject: 'aos', grade: 74 },
+					{ subject: 'discrete_mathematics', grade: 85 }
+				]
+			}
+		];
+
+
+		const array1 = [
+			{
+				"name": "Ігор",
+				"surname": "Павленко",
+				"grades": [
+					{ "subject": "oop", "grade": 85 },
+					{ "subject": "web", "grade": 78 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 70 }
+				]
+			},
+			{
+				"name": "Наталія",
+				"surname": "Мельник",
+				"grades": [
+					{ "subject": "oop", "grade": 70 },
+					{ "subject": "web", "grade": 58 },
+					{ "subject": "aos", "grade": 75 },
+					{ "subject": "discrete_mathematics", "grade": 49 }
+				]
+			},
+			{
+				"name": "Анна",
+				"surname": "Коваль",
+				"grades": [
+					{ "subject": "oop", "grade": 78 },
+					{ "subject": "web", "grade": 90 },
+					{ "subject": "aos", "grade": 85 },
+					{ "subject": "discrete_mathematics", "grade": 80 }
+				]
+			},
+			{
+				"name": "Дмитро",
+				"surname": "Козлов",
+				"grades": [
+					{ "subject": "oop", "grade": 90 },
+					{ "subject": "web", "grade": 85 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 88 }
+				]
+			},
+			{
+				"name": "Олена",
+				"surname": "Іванова",
+				"grades": [
+					{ "subject": "oop", "grade": 75 },
+					{ "subject": "web", "grade": 68 },
+					{ "subject": "aos", "grade": 74 },
+					{ "subject": "discrete_mathematics", "grade": 85 }
+				]
+			},
+			{
+				"name": "Артем",
+				"surname": "Сидоренко",
+				"grades": [
+					{ "subject": "oop", "grade": 82 },
+					{ "subject": "web", "grade": 70 },
+					{ "subject": "aos", "grade": 78 },
+					{ "subject": "discrete_mathematics", "grade": 90 }
+				]
+			},
+			{
+				"name": "Катерина",
+				"surname": "Петренко",
+				"grades": [
+					{ "subject": "oop", "grade": 38 },
+					{ "subject": "web", "grade": 75 },
+					{ "subject": "aos", "grade": 72 },
+					{ "subject": "discrete_mathematics", "grade": 80 }
+				]
+			}
+		];
+		const array3 = [
+			{
+				"name": "Тетяна",
+				"surname": "Петренко",
+				"grades": [
+					{ "subject": "oop", "grade": 85 },
+					{ "subject": "web", "grade": 78 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 70 }
+				]
+			},
+			{
+				"name": "Максим",
+				"surname": "Сидоренко",
+				"grades": [
+					{ "subject": "oop", "grade": 70 },
+					{ "subject": "web", "grade": 82 },
+					{ "subject": "aos", "grade": 75 },
+					{ "subject": "discrete_mathematics", "grade": 88 }
+				]
+			},
+			{
+				"name": "Євгенія",
+				"surname": "Коваленко",
+				"grades": [
+					{ "subject": "oop", "grade": 78 },
+					{ "subject": "web", "grade": 90 },
+					{ "subject": "aos", "grade": 85 },
+					{ "subject": "discrete_mathematics", "grade": 80 }
+				]
+			},
+			{
+				"name": "Роман",
+				"surname": "Ковальчук",
+				"grades": [
+					{ "subject": "oop", "grade": 90 },
+					{ "subject": "web", "grade": 85 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 88 }
+				]
+			},
+			{
+				"name": "Дарина",
+				"surname": "Іванова",
+				"grades": [
+					{ "subject": "oop", "grade": 75 },
+					{ "subject": "web", "grade": 68 },
+					{ "subject": "aos", "grade": 74 },
+					{ "subject": "discrete_mathematics", "grade": 85 }
+				]
+			},
+			{
+				"name": "Сергій",
+				"surname": "Сергієнко",
+				"grades": [
+					{ "subject": "oop", "grade": 82 },
+					{ "subject": "web", "grade": 70 },
+					{ "subject": "aos", "grade": 78 },
+					{ "subject": "discrete_mathematics", "grade": 90 }
+				]
+			},
+			{
+				"name": "Наталя",
+				"surname": "Григоренко",
+				"grades": [
+					{ "subject": "oop", "grade": 68 },
+					{ "subject": "web", "grade": 75 },
+					{ "subject": "aos", "grade": 72 },
+					{ "subject": "discrete_mathematics", "grade": 80 }
+				]
+			},
+			{
+				"name": "Володимир",
+				"surname": "Кузьменко",
+				"grades": [
+					{ "subject": "oop", "grade": 85 },
+					{ "subject": "web", "grade": 78 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 70 }
+				]
+			},
+			{
+				"name": "Маргарита",
+				"surname": "Іванова",
+				"grades": [
+					{ "subject": "oop", "grade": 70 },
+					{ "subject": "web", "grade": 82 },
+					{ "subject": "aos", "grade": 75 },
+					{ "subject": "discrete_mathematics", "grade": 88 }
+				]
+			}
+		];
+
+		// Масив з 8 елементів
+		const array4 = [
+			{
+				"name": "Олександра",
+				"surname": "Павленко",
+				"grades": [
+					{ "subject": "oop", "grade": 85 },
+					{ "subject": "web", "grade": 78 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 70 }
+				]
+			},
+			{
+				"name": "Михайло",
+				"surname": "Мельник",
+				"grades": [
+					{ "subject": "oop", "grade": 70 },
+					{ "subject": "web", "grade": 82 },
+					{ "subject": "aos", "grade": 75 },
+					{ "subject": "discrete_mathematics", "grade": 88 }
+				]
+			},
+			{
+				"name": "Єлизавета",
+				"surname": "Коваль",
+				"grades": [
+					{ "subject": "oop", "grade": 78 },
+					{ "subject": "web", "grade": 90 },
+					{ "subject": "aos", "grade": 85 },
+					{ "subject": "discrete_mathematics", "grade": 80 }
+				]
+			},
+			{
+				"name": "Андріан",
+				"surname": "Кравчук",
+				"grades": [
+					{ "subject": "oop", "grade": 90 },
+					{ "subject": "web", "grade": 85 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 88 }
+				]
+			},
+			{
+				"name": "Надія",
+				"surname": "Іванова",
+				"grades": [
+					{ "subject": "oop", "grade": 75 },
+					{ "subject": "web", "grade": 68 },
+					{ "subject": "aos", "grade": 74 },
+					{ "subject": "discrete_mathematics", "grade": 85 }
+				]
+			},
+			{
+				"name": "Олександр",
+				"surname": "Сидоренко",
+				"grades": [
+					{ "subject": "oop", "grade": 82 },
+					{ "subject": "web", "grade": 70 },
+					{ "subject": "aos", "grade": 78 },
+					{ "subject": "discrete_mathematics", "grade": 90 }
+				]
+			},
+			{
+				"name": "Євген",
+				"surname": "Петренко",
+				"grades": [
+					{ "subject": "oop", "grade": 38 },
+					{ "subject": "web", "grade": 67 },
+					{ "subject": "aos", "grade": 45 },
+					{ "subject": "discrete_mathematics", "grade": 60 }
+				]
+			},
+			{
+				"name": "Тетяна",
+				"surname": "Лисенко",
+				"grades": [
+					{ "subject": "oop", "grade": 85 },
+					{ "subject": "web", "grade": 78 },
+					{ "subject": "aos", "grade": 92 },
+					{ "subject": "discrete_mathematics", "grade": 70 }
+				]
+			}
+		];
+		function myTest() {
+			myEqual(f(array0, 'oop'), { "name": "Олексій", "surname": "Сидоренко", "grade": 93 }, "OOP => " + JSON.stringify(array0));
+			myEqual(f(array1, 'web'), { "name": "Анна", "surname": "Коваль", "grade": 90 }, "WEB => " + JSON.stringify(array1));
+			myEqual(f(array3, 'aos'), { "name": "Тетяна", "surname": "Петренко", "grade": 92 }, "AOS => " + JSON.stringify(array3));
+			myEqual(f(array4, 'discrete_mathematics'), { "name": "Олександр", "surname": "Сидоренко", "grade": 90 }, "discrete_mathematics => " + JSON.stringify(array4));
+		}
+	</script>
+</body>
+
+</html>

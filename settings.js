@@ -20,6 +20,14 @@ editor.commands.addCommand({
     }
 });
 
+var langTools = ace.require("ace/ext/language_tools");
+
+editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true,
+    enableSnippets: true
+  });
+
 document.getElementById("selectTheme").addEventListener("change", function () {
     selectTheme = this.options[this.selectedIndex].text;
     editor.setTheme("ace/theme/" + selectTheme);

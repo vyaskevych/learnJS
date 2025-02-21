@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 	<title>Сума двох чисел</title>
 	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 </head>
 
 <body>
@@ -23,6 +24,7 @@ function sum(a, b) {
 	</pre>
 			<br>
 			<select name="" id="selectTheme">
+				<option value="">Оберіть тему</option>
 				<option value="">chrome</option>
 				<option value="">monokai</option>
 				<option value="">twilight</option>
@@ -38,12 +40,20 @@ function sum(a, b) {
 	<div id="outRes"></div>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.min.js"
 		integrity="sha512-kiECX53fzPhY5cnGzxTUZUOefsjR7gY3SD2OOgcsxZ0nAMZ3e+lkqxhXzGAFm05KjIaQ49/OyNryGTcbLb2V9w=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-beautify.min.js"
 		integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ext-language_tools.js"></script> -->
+
+
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ace.js"></script>
+	<!-- load ace language tools -->
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-language_tools.js"></script>
+	<script src="https://www.unpkg.com/ace-builds@latest/src-min/ext-beautify.js"></script>
+
 	<script src="settings.js"></script>
 	<script src="cover.js"></script>
 	<script>

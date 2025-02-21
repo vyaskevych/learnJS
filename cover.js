@@ -34,9 +34,9 @@ function myEqual(rec, exp, spec) {
 	tests.total++
 	if (myDeepEqual(rec, exp)) {
 		tests.passed++;
-		out.insertAdjacentHTML("beforeend", `<div class="test"><p class="ok">OK&nbsp;&nbsp;&nbsp;${spec};</p><p>expected:</p><pre>${exp}</pre> result: <pre>${rec}</pre></div>`);
+		out.insertAdjacentHTML("beforeend", `<div class="test"><p class="ok">OK&nbsp;&nbsp;&nbsp;${JSON.stringify(spec)};</p><p>expected:</p><pre>${JSON.stringify(exp)}</pre> result: <pre>${JSON.stringify(rec)}</pre></div>`);
 	} else {
-		out.insertAdjacentHTML("beforeend", `<div class="test"><p class="failed">Failed&nbsp;&nbsp;&nbsp;${spec};</p><p>expected:</p><pre>${exp}</pre> result: <pre>${rec}</pre></div>`);
+		out.insertAdjacentHTML("beforeend", `<div class="test"><p class="failed">Failed&nbsp;&nbsp;&nbsp;${JSON.stringify(spec)};</p><p>expected:</p><pre>${JSON.stringify(exp)}</pre> result: <pre>${JSON.stringify(rec)}</pre></div>`);
 	}
 
 }
