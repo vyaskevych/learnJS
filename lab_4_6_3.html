@@ -38,12 +38,7 @@
 			<pre id="editor">
 function getTopStudentInSubject(students, subject) {
 	return students
-		.map(student => {
-			let gradeObj = student.grades.find(grade => grade.subject === subject);
-			return gradeObj ? { name: student.name, surname: student.surname, grade: gradeObj.grade } : null;
-		})
-		.filter(student => student !== null)
-		.reduce((best, student) => (student.grade > best.grade ? student : best), { grade: -1 });
+	// Write your code here
 }
 	</pre>
 			<br>
