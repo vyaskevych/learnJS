@@ -22,6 +22,54 @@
 				(<code>if else, switch, тернарний оператор</code>), та команди <code>eval</code>
 			</p>
 
+			<h3>Математичний інтерпретатор</h3>
+			<p>JavaScript дозволяє виконувати арифметичні операції, але давайте реалізуємо функцію, яка дозволяє
+				користувачам обчислювати прості математичні вирази у вигляді рядка.</p>
+			<p>Реалізуйте функцію <code>mathInterpreter(expression)</code>, яка приймає на вхід рядок з арифметичним
+				виразом і повертає результат обчислення у вигляді числа з плаваючою комою, відформатованого до
+				одного
+				десяткового знака. Припустимо, що вхідний рядок має формат <code>x y z</code>, де між <code>x</code>
+				і
+				<code>y</code>, а також між <code>y</code> і <code>z</code> є один пробіл. У цьому форматі:
+			</p>
+			<ul>
+				<li><code>x</code> – ціле число;</li>
+				<li><code>y</code> – <code>+</code>, <code>-</code>, <code>*</code> або <code>/</code>;</li>
+				<li><code>z</code> – ціле число.</li>
+			</ul>
+			<p>Наприклад, якщо функція отримує на вхід рядок <code>"1 + 1"</code>, вона має повернути
+				<code>2.0</code>.
+				Припустимо, що якщо <code>y</code> – це <code>/</code>, то <code>z</code> не буде рівним 0.
+			</p>
+			<pre>
+	Приклад 1:
+		Вхід: "1 + 1"
+		Вихід: 	2.0
+				
+	Приклад 2:
+		Вхід:  "10 / 2"
+		Вихід: 5.0
+
+	Приклад 3:
+		Вхід:  "3 * 4"
+		Вихід: 12.0
+	</pre>
+			<div>
+				<p><em>Примітка:</em> Під час виконання завдання <b>не використовувати</b> функцію
+					<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval">eval</a></code>
+				</p>
+
+				<p><em>Примітка:</em> розв'язати завдання необхідно без використання команд розгалуження
+					(<code>if else, switch, тернарний оператор</code>), та команди <code>eval</code>
+				</p>
+				<p>Для розділення вхідного рядка на складові можна використати метод
+					<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">split</a></code>
+					та команду
+					<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></code>
+				</p>
+				<p><code>const [x, y, z] = expression.split(" ")</code></p>
+			</div>
+
 		</section>
 		<section class="work">
 
@@ -71,5 +119,6 @@ function calc (expr) {
 		}
 	</script>
 </body>
+
 
 </html>
